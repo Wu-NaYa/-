@@ -16,33 +16,50 @@ test_data = [
 
 
 # 封装浏览器初始化和关闭的fixture
+import pytest
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+import os
+
 @pytest.fixture(scope="function")
 def driver():
-    """初始化浏览器"""
-    # 创建Chrome浏览器选项
-    from selenium.webdriver.chrome.options import Options
-    chrome_options = Options()
-    # 添加必要的参数以避免崩溃（Jenkins环境）
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--remote-debugging-port=9222")
-    chrome_options.add_argument("--headless")  # 无头模式，适合CI环境
-    chrome_options.add_argument("--disable-gpu")  # 禁用GPU加速
-    chrome_options.add_argument("--window-size=1920,1080")  # 设置窗口大小
-    # 创建Chrome浏览器实例
-    driver = webdriver.Chrome(options=chrome_options)
-    # 设置隐式等待时间为10秒
+    """初始化浏览器（Firefox 国内无墙稳定版）"""
+    firefox_options = Options()
+
+    # CI / Jenkins 本地都能跑的稳定参数
+    firefox_options.add_argument("--headless")
+    firefox_options.add_argument("--disable-gpu")
+    firefox_options.add_argument("--window-size=1920,1080")
+    firefox_options.add_argument("--no-sandbox")
+    firefox_options.add_argument("--disable-dev-shm-usage")
+
+    # 自动下载火狐驱动，国内 100% 可用！
+    driver = webdriver.Firefox(options=firefox_options)
     driver.implicitly_wait(10)
     yield driver
-    # 测试结束后关闭浏览器
     driver.quit()
 
-
-# 测试登录页面加载
-@pytest.mark.parametrize("username, password, expected", test_data)
-def test_login(driver, username, password, expected):
-    """测试登录功能"""
+# 测试登录功能
+def test_login_functionality(driver):
+    """测试登录页面的基本功能"""
     # 打开登录页面（使用相对路径）
+    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
+
+    # 等待页面加载完成
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "name"))
+    )
+
+    # 验证页面标题
+    assert "登录" in driver.title, "页面标题不正确"
+    print("登录页面加载成功")
+
+
+# 测试不同登录场景
+@pytest.mark.parametrize("username, password, expected", test_data)
+def test_login_scenarios(driver, username, password, expected):
+    """测试不同登录场景"""
+    # 打开登录页面
     driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
 
     # 等待页面加载完成
@@ -68,26 +85,31 @@ def test_login(driver, username, password, expected):
     time.sleep(2)
 
     # 验证登录结果
-    # 这里需要根据实际情况进行调整，例如检查URL变化或错误提示
     # 由于是本地HTML文件，表单提交后可能会跳转到404页面，这里仅做示例
     current_url = driver.current_url
-    print(f"当前URL: {current_url}")
     print(f"测试用例: 用户名={username}, 密码={password}, 预期结果={expected}")
+    print(f"当前URL: {current_url}")
 
 
 # 测试注册链接
-
 def test_register_link(driver):
     """测试注册链接"""
-    # 打开登录页面（使用相对路径）
+    # 打开登录页面
     driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
+
+    # 等待页面加载完成
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "name"))
+    )
 
     # 点击注册链接
     register_link = driver.find_element(By.LINK_TEXT, "立即注册")
     register_link.click()
 
-    # 验证页面跳转
+    # 等待页面跳转
     time.sleep(2)
+
+    # 验证页面跳转
     current_url = driver.current_url
     assert "register.html" in current_url, "注册链接跳转失败"
     print(f"注册链接跳转成功，当前URL: {current_url}")
@@ -96,15 +118,22 @@ def test_register_link(driver):
 # 测试管理员登录链接
 def test_manager_login_link(driver):
     """测试管理员登录链接"""
-    # 打开登录页面（使用相对路径）
+    # 打开登录页面
     driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
+
+    # 等待页面加载完成
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "name"))
+    )
 
     # 点击管理员登录链接
     manager_login_link = driver.find_element(By.LINK_TEXT, "管理员登录")
     manager_login_link.click()
 
-    # 验证页面跳转
+    # 等待页面跳转
     time.sleep(2)
+
+    # 验证页面跳转
     current_url = driver.current_url
     assert "managerLogin.html" in current_url, "管理员登录链接跳转失败"
     print(f"管理员登录链接跳转成功，当前URL: {current_url}")
