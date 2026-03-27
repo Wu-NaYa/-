@@ -19,12 +19,24 @@ test_data = [
 @pytest.fixture(scope="function")
 def driver():
     """初始化浏览器"""
+    # 创建Edge浏览器选项
+    from selenium.webdriver.edge.options import Options
+    edge_options = Options()
+    # 添加必要的参数以避免崩溃（Jenkins环境）
+    edge_options.add_argument("--no-sandbox")
+    edge_options.add_argument("--disable-dev-shm-usage")
+    edge_options.add_argument("--remote-debugging-port=9222")
+    edge_options.add_argument("--headless")  # 无头模式，适合CI环境
+    edge_options.add_argument("--disable-gpu")  # 禁用GPU加速
+    edge_options.add_argument("--window-size=1920,1080")  # 设置窗口大小
+    edge_options.add_argument("--disable-extensions")  # 禁用扩展
+    edge_options.add_argument("--disable-popup-blocking")  # 禁用弹窗阻止
+    edge_options.add_argument("--disable-infobars")  # 禁用信息栏
+    edge_options.add_argument("--start-maximized")  # 启动时最大化
     # 创建Edge浏览器实例
-    driver = webdriver.Edge()
+    driver = webdriver.Edge(options=edge_options)
     # 设置隐式等待时间为10秒
     driver.implicitly_wait(10)
-    # 最大化浏览器窗口
-    driver.maximize_window()
     yield driver
     # 测试结束后关闭浏览器
     driver.quit()
