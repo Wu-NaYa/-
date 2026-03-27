@@ -17,16 +17,22 @@ test_data = [
 
 
 
+import pytest
+from selenium import webdriver
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.service import Service
+
 @pytest.fixture(scope="function")
 def driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless=new")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--remote-debugging-port=9229")
+    edge_options = Options()
+    edge_options.add_argument("--headless=new")
+    edge_options.add_argument("--no-sandbox")
+    edge_options.add_argument("--disable-dev-shm-usage")
+    edge_options.add_argument("--disable-gpu")
+    edge_options.add_argument("--remote-debugging-port=9229")
 
-    driver = webdriver.Chrome(options=chrome_options)
+    service = Service()
+    driver = webdriver.Edge(service=service, options=edge_options)
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
