@@ -19,59 +19,12 @@ test_data = [
 @pytest.fixture(scope="function")
 def driver():
     """初始化浏览器"""
-    # 创建Edge浏览器选项
-    from selenium.webdriver.edge.options import Options
-    edge_options = Options()
-    # 添加必要的参数以避免崩溃（Jenkins环境）
-    edge_options.add_argument("--no-sandbox")
-    edge_options.add_argument("--disable-dev-shm-usage")
-    edge_options.add_argument("--remote-debugging-port=9222")
-    edge_options.add_argument("--headless")  # 无头模式，适合CI环境
-    edge_options.add_argument("--disable-gpu")  # 禁用GPU加速
-    edge_options.add_argument("--window-size=1920,1080")  # 设置窗口大小
-    edge_options.add_argument("--disable-extensions")  # 禁用扩展
-    edge_options.add_argument("--disable-popup-blocking")  # 禁用弹窗阻止
-    edge_options.add_argument("--disable-infobars")  # 禁用信息栏
-    edge_options.add_argument("--start-maximized")  # 启动时最大化
-    edge_options.add_argument("--disable-background-timer-throttling")  # 禁用后台定时器节流
-    edge_options.add_argument("--disable-backgrounding-occluded-windows")  # 禁用后台 occlusion 窗口
-    edge_options.add_argument("--disable-renderer-backgrounding")  # 禁用渲染器后台
-    edge_options.add_argument("--disable-features=VizDisplayCompositor")  # 禁用 Viz 显示合成器
-    
-    # 尝试使用不同的Edge驱动程序路径（根据Jenkins环境调整）
-    try:
-        # 方法1：使用默认路径
-        driver = webdriver.Edge(options=edge_options)
-    except Exception as e:
-        print(f"默认路径失败: {e}")
-        # 方法2：指定Edge驱动程序路径（根据实际情况调整）
-        from selenium.webdriver.edge.service import Service
-        import os
-        # 尝试常见的Edge驱动程序路径
-        possible_paths = [
-            "C:\\WebDrivers\\msedgedriver.exe",
-            "D:\\WebDrivers\\msedgedriver.exe",
-            os.path.join(os.path.dirname(__file__), "msedgedriver.exe")
-        ]
-        
-        driver = None
-        for path in possible_paths:
-            if os.path.exists(path):
-                try:
-                    service = Service(executable_path=path)
-                    driver = webdriver.Edge(service=service, options=edge_options)
-                    print(f"使用Edge驱动程序路径: {path}")
-                    break
-                except Exception as e:
-                    print(f"路径 {path} 失败: {e}")
-        
-        # 如果所有路径都失败，尝试使用Selenium的自动驱动管理
-        if driver is None:
-            print("尝试使用Selenium的自动驱动管理")
-            driver = webdriver.Edge(options=edge_options)
-    
+    # 创建Edge浏览器实例
+    driver = webdriver.Edge()
     # 设置隐式等待时间为10秒
     driver.implicitly_wait(10)
+    # 最大化浏览器窗口
+    driver.maximize_window()
     yield driver
     # 测试结束后关闭浏览器
     driver.quit()
@@ -82,7 +35,7 @@ def driver():
 def test_login(driver, username, password, expected):
     """测试登录功能"""
     # 打开登录页面（使用相对路径）
-    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "src/main/webapp/login.html")))
+    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
 
     # 等待页面加载完成
     WebDriverWait(driver, 10).until(
@@ -119,7 +72,7 @@ def test_login(driver, username, password, expected):
 def test_register_link(driver):
     """测试注册链接"""
     # 打开登录页面（使用相对路径）
-    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "src/main/webapp/login.html")))
+    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
 
     # 点击注册链接
     register_link = driver.find_element(By.LINK_TEXT, "立即注册")
@@ -136,7 +89,7 @@ def test_register_link(driver):
 def test_manager_login_link(driver):
     """测试管理员登录链接"""
     # 打开登录页面（使用相对路径）
-    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "src/main/webapp/login.html")))
+    driver.get("file:///" + os.path.abspath(os.path.join(os.path.dirname(__file__), "login.html")))
 
     # 点击管理员登录链接
     manager_login_link = driver.find_element(By.LINK_TEXT, "管理员登录")
