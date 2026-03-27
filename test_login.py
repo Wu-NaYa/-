@@ -19,34 +19,21 @@ test_data = [
 # 封装浏览器初始化和关闭的fixture
 @pytest.fixture(scope="function")
 def driver():
-    """初始化浏览器"""
-    # 创建Edge浏览器实例
-    from selenium.webdriver.edge.options import Options
+      chrome_options = Options()
 
-@pytest.fixture(scope="function")
-def driver():
-    """初始化浏览器"""
-    edge_options = Options()
-    
-    # 核心：无界面模式（必须加）
-    edge_options.add_argument("--headless=new")
-    # Jenkins 服务环境必须加的参数
-    edge_options.add_argument("--no-sandbox")
-    edge_options.add_argument("--disable-dev-shm-usage")
-    edge_options.add_argument("--disable-gpu")
-    edge_options.add_argument("--remote-debugging-port=9222")
-    
-    driver = webdriver.Edge(options=edge_options)
-    driver.maximize_window()
+    # ✅  Jenkins 服务器 100% 稳定参数
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--remote-debugging-port=9222")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--window-size=1920,1080")
+
+    # ✅ 启动 Chrome（不会崩溃）
+    driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
     yield driver
-    driver.quit()
-    # 设置隐式等待时间为10秒
-    driver.implicitly_wait(10)
-    # 最大化浏览器窗口
-    driver.maximize_window()
-    yield driver
-    # 测试结束后关闭浏览器
     driver.quit()
 
 
