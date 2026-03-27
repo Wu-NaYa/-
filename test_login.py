@@ -20,7 +20,26 @@ test_data = [
 def driver():
     """初始化浏览器"""
     # 创建Edge浏览器实例
-    driver = webdriver.Edge()
+    from selenium.webdriver.edge.options import Options
+
+@pytest.fixture(scope="function")
+def driver():
+    """初始化浏览器"""
+    edge_options = Options()
+    
+    # 核心：无界面模式（必须加）
+    edge_options.add_argument("--headless=new")
+    # Jenkins 服务环境必须加的参数
+    edge_options.add_argument("--no-sandbox")
+    edge_options.add_argument("--disable-dev-shm-usage")
+    edge_options.add_argument("--disable-gpu")
+    edge_options.add_argument("--remote-debugging-port=9222")
+    
+    driver = webdriver.Edge(options=edge_options)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
     # 设置隐式等待时间为10秒
     driver.implicitly_wait(10)
     # 最大化浏览器窗口
