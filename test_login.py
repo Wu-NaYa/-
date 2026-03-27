@@ -33,8 +33,43 @@ def driver():
     edge_options.add_argument("--disable-popup-blocking")  # 禁用弹窗阻止
     edge_options.add_argument("--disable-infobars")  # 禁用信息栏
     edge_options.add_argument("--start-maximized")  # 启动时最大化
-    # 创建Edge浏览器实例
-    driver = webdriver.Edge(options=edge_options)
+    edge_options.add_argument("--disable-background-timer-throttling")  # 禁用后台定时器节流
+    edge_options.add_argument("--disable-backgrounding-occluded-windows")  # 禁用后台 occlusion 窗口
+    edge_options.add_argument("--disable-renderer-backgrounding")  # 禁用渲染器后台
+    edge_options.add_argument("--disable-features=VizDisplayCompositor")  # 禁用 Viz 显示合成器
+    
+    # 尝试使用不同的Edge驱动程序路径（根据Jenkins环境调整）
+    try:
+        # 方法1：使用默认路径
+        driver = webdriver.Edge(options=edge_options)
+    except Exception as e:
+        print(f"默认路径失败: {e}")
+        # 方法2：指定Edge驱动程序路径（根据实际情况调整）
+        from selenium.webdriver.edge.service import Service
+        import os
+        # 尝试常见的Edge驱动程序路径
+        possible_paths = [
+            "C:\\WebDrivers\\msedgedriver.exe",
+            "D:\\WebDrivers\\msedgedriver.exe",
+            os.path.join(os.path.dirname(__file__), "msedgedriver.exe")
+        ]
+        
+        driver = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                try:
+                    service = Service(executable_path=path)
+                    driver = webdriver.Edge(service=service, options=edge_options)
+                    print(f"使用Edge驱动程序路径: {path}")
+                    break
+                except Exception as e:
+                    print(f"路径 {path} 失败: {e}")
+        
+        # 如果所有路径都失败，尝试使用Selenium的自动驱动管理
+        if driver is None:
+            print("尝试使用Selenium的自动驱动管理")
+            driver = webdriver.Edge(options=edge_options)
+    
     # 设置隐式等待时间为10秒
     driver.implicitly_wait(10)
     yield driver
