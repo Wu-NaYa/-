@@ -16,12 +16,10 @@ test_data = [
 ]
 
 
-# 封装浏览器初始化和关闭的fixture
+
 @pytest.fixture(scope="function")
 def driver():
-      chrome_options = Options()
-
-    # ✅  Jenkins 服务器 100% 稳定参数
+    chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -30,12 +28,10 @@ def driver():
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--window-size=1920,1080")
 
-    # ✅ 启动 Chrome（不会崩溃）
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
-
 
 # 测试登录页面加载
 @pytest.mark.parametrize("username, password, expected", test_data)
