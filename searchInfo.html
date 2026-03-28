@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>知识图谱</title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
+    <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+    <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+    <meta name="author" content="yinqi">
+    <link href="search/css/bootstrap.min.css" rel="stylesheet">
+    <link href="search/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="search/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="lyear-layout-web">
+    <div class="lyear-layout-container">
+        <!--左侧导航-->
+        <aside class="lyear-layout-sidebar">
+
+            <!-- logo -->
+            <div id="logo" class="sidebar-header">
+<!--                <a href="index0.html"><img src="search/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>-->
+                <a href="index0.html"><h1>返回</h1></a>
+            </div>
+            <div class="lyear-layout-sidebar-scroll">
+
+                <nav class="sidebar-main">
+                    <ul class="nav nav-drawer">
+                        <li class="nav-item active"> <i class="mdi mdi-home"></i> 病例 </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)" onclick="clickDisease(this)"><i class="mdi mdi-file-outline"></i>乳腺癌</a>
+                            <ul class="nav nav-subnav" >
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)" onclick="clickDisease(this)"><i class="mdi mdi-file-outline"></i>心血管疾病</a>
+                            <ul class="nav nav-subnav">
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)" onclick="clickDisease(this)"><i class="mdi mdi-file-outline"></i>眼部疾病</a>
+                            <ul class="nav nav-subnav">
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)" onclick="clickDisease(this)"><i class="mdi mdi-file-outline"></i>肝脏疾病</a>
+                            <ul class="nav nav-subnav">
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+
+<!--                <div class="sidebar-footer">-->
+<!--                    <p class="copyright">Copyright &copy; 2019. All rights reserved. More Templates 更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>-->
+<!--                </div>-->
+            </div>
+
+        </aside>
+        <!--End 左侧导航-->
+
+        <!--头部信息-->
+        <header class="lyear-layout-header">
+
+            <nav class="navbar navbar-default">
+                <div class="topbar">
+
+                    <div class="topbar-left">
+                        <div class="lyear-aside-toggler">
+                            <span class="lyear-toggler-bar"></span>
+                            <span class="lyear-toggler-bar"></span>
+                            <span class="lyear-toggler-bar"></span>
+                        </div>
+                        <span class="navbar-page-title"> 知识图谱 </span>
+                    </div>
+
+                    <ul class="topbar-right">
+<!--                        <li class="dropdown dropdown-profile">-->
+<!--                            <a href="javascript:void(0)" data-toggle="dropdown">-->
+<!--                                <img class="img-avatar img-avatar-48 m-r-10" src="search/images/users/avatar.jpg" alt="笔下光年" />-->
+<!--                                <span>笔下光年 <span class="caret"></span></span>-->
+<!--                            </a>-->
+<!--                            <ul class="dropdown-menu dropdown-menu-right">-->
+<!--                                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>-->
+<!--                                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>-->
+<!--                                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>-->
+<!--                                <li class="divider"></li>-->
+<!--                                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+                        <!--切换主题配色-->
+                        <li class="dropdown dropdown-skin">
+                            <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+                            <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                                <li class="drop-title"><p>主题</p></li>
+                                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                                </li>
+                                <li class="drop-title"><p>LOGO</p></li>
+                                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+                                </li>
+                                <li class="drop-title"><p>头部</p></li>
+                                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>
+                                    <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>
+                                    <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>
+                                    <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>
+                                    <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>
+                                    <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+                                </li>
+                                <li class="drop-title"><p>侧边栏</p></li>
+                                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                                    <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--切换主题配色-->
+                    </ul>
+
+                </div>
+            </nav>
+
+        </header>
+        <!--End 头部信息-->
+
+        <!--页面主要内容-->
+        <main class="lyear-layout-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>相关信息</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive" >
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>信息</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="bodyContent">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--End 页面主要内容-->
+    </div>
+    <div id="Chartcontainer" style="height: 1000px;width:100%"></div>
+</div>
+<div id="trModel" style="display: none">
+    <table>
+        <tr>
+            <td>1</td>
+            <td>设计新主题</td>
+        </tr>
+    </table>
+
+</div>
+<script type="text/javascript" src="search/js/jquery.min.js"></script>
+<script type="text/javascript" src="search/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="search/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="search/js/main.min.js"></script>
+<script type="text/javascript" src="search/js/echarts.js"></script>
+<!--图表插件-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>-->
+<script type="text/javascript" src="search/js/Chart.js"></script>
+<script type="text/javascript">
+    var relation=[];
+    var dname="";
+    var dom = document.getElementById("Chartcontainer");
+    var myChart = echarts.init(dom);
+    var app = {};
+    var option;
+    /*通过ajax获取所有数据*/
+    var datas=[];
+    var links=[];
+    $(document).ready(function(e) {
+        //loadHTML();
+        var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
+            $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
+
+
+
+        new Chart($dashChartBarsCnt, {
+            type: 'bar',
+            data: $dashChartBarsData
+        });
+
+        var myLineChart = new Chart($dashChartLinesCnt, {
+            type: 'line',
+            data: $dashChartLinesData,
+        });
+    });
+
+
+    /*加载页面*/
+    function loadHTML(){
+        //alert("ok");
+        $.ajax({
+            url:"/showRelation",
+            type:"get",
+            data:{
+              dname:"乳腺癌"
+            },
+            dataType:"json",
+            success:function(data){
+                //alert(data[0].name);
+                //alert(data.length);
+                for(var i=0;i<=data.length;i++){
+                        $("#diseaseOne").append('<li> <a href=##" onclick="clickRelation(this)">'+data[i].name+'</a> </li>');
+                }
+            }
+        });
+       // alert("ok");
+    }
+    /*给每一种关系添加点击事件*/
+    function clickRelation(ths){
+        /*获取模板节点*/
+        var tModel=$('#trModel tbody');
+        //tModel.find("td").eq(0).text(2);
+        /*获取关系*/
+        var rname=$(ths).text();
+        /*获取疾病名*/
+        var dname=$(ths).parents("ul").prev().text();
+
+        $.ajax({
+            url:"/getSymptom",
+            type:"post",
+            data:{
+                rname:rname,
+                dname:dname
+            },
+            dataType:"json",
+            success:function(data){
+                //alert(data[0].name);
+                //alert(data.length);
+                $("#bodyContent").empty();
+                for(var i=0;i<=data.length;i++){
+                   tModel.find("td").eq(0).text(i+1);
+                   tModel.find("td").eq(1).text(data[i].name);
+                   $("#bodyContent").append(tModel.html());
+                }
+            }
+        });
+        //$('#bodyContent').append($('#trModel').parent().html());
+        //alert();
+        //alert($(ths).text());
+    }
+    /*点击加载事件*/
+    function clickDisease(ths){
+        var newdname=$(ths).text();
+        if(newdname!=dname){
+            relation=[];
+            datas=[];
+            links=[];
+            dname=newdname;
+            getChartInfo();
+        }else{
+            return 0;
+        }
+
+        var thiscode=$(ths).next();
+        //获取该菜单长度
+        var length=thiscode.children().length;
+        /*如果长度为0，就加载，不等于0，就不加载*/
+        if(length==0){
+            $.ajax({
+                url:"/showRelation",
+                type:"post",
+                data:{
+                    dname:dname
+                },
+                dataType:"json",
+                success:function(data){
+                    //alert(data[0].name);
+                    //alert(data.length);
+                    for(var i=0;i<=data.length;i++){
+                        thiscode.append('<li> <a href=##" class="d1" onclick="clickRelation(this)">'+data[i].name+'</a> </li>');
+                    }
+                }
+            });
+        }
+
+    }
+    /*获取表格数据*/
+    function getChartInfo(){
+        $.ajax({
+            url:"/getOneEData",
+            type:"post",
+            data:{
+                dname:dname
+            },
+            async: true,
+            dataType:"json",
+            success:function(data){
+
+                //alert(data.length);
+                datas.push({
+                    name:dname
+                });
+                for(var i=0;i<data.length;i++){
+                    // alert(data[i].rname);
+                    relation.push(data[i].rname);
+                }
+                for(var i=0;i<data.length;i++){
+                    for(var j=0;j<data[i].sList.length;j++){
+                        datas.push({
+                            name:data[i].sList[j].name,
+                            value:data[i].rname
+                        });
+                        links.push({
+                            source: dname,
+                            target: data[i].sList[j].name,
+                            symbolSize: [5, 5],
+                            value:data[i].rname,
+                            label:{
+                                show:true,
+                                formatter:function(){
+                                    return relation[i];
+                                },
+                                fontSize:10
+                            }
+
+                        });
+                    }
+                }
+                loadChart(datas,links);
+            }
+        });
+    }
+
+    /*加载表格*/
+    function loadChart(datas,links){
+        option = {
+            title: {
+                text: dname
+            },
+            tooltip: {},
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [
+                {
+                    type: 'graph',
+                    layout: 'circular',
+                    symbolSize: 40,
+                    roam: true,
+                    label: {
+                        show: true
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 5],
+                    edgeLabel: {
+                        fontSize: 1
+                    },
+                    data:datas,
+                    links: links,
+                    lineStyle: {
+                        opacity: 0.9,
+                        width: 1,
+                        curveness: 0
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+    }
+</script>
+</body>
+</html>

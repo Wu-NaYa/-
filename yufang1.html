@@ -1,0 +1,708 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>心血管疾病分析</title>
+<link href="css/style2.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/echarts.min.js" charset="utf-8"></script>
+<script src="js/jquery-3.2.0.min.js"></script>
+
+<body>
+<div class="bnt">
+    <div class="topbnt_left fl">
+        <ul><li><a href="kepu1.html">疾病科普</a></li>
+            <li><a href="index1.html">疾病分析</a></li>
+
+
+        </ul>
+    </div>
+    <h1 class="tith1 fl">心血管疾病预测</h1>
+    <div class=" fr topbnt_right">
+        <ul>
+            <li><a href="index0.html">返回首页</a></li>
+            <li class="active"><a href="yufang1.html">疾病预测</a></li>
+
+
+        </ul>
+
+    </div>
+</div>
+
+</div>
+<!--  left1 end -->
+<div class="mrbox">
+    <div class="mrbox_topmidd" style="width: 69%;">
+        <div class="amiddboxttop" style="width: 620px;height: 630px;margin-left: 60px">
+            <h2 class="tith2 pt1" style="font-size: 18px">心血管预测</h2>
+            <div class="hot_map">
+                <center>
+                    <form action="#" method="post" id="form1">
+                        <table border="0" style=" width:500px;height: 500px">
+                            <tr>
+                                <td style="font-weight: bolder">身高 cm</td>
+                                <td><input type="text" id="loan_1" name="height"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">体重 kg</td>
+                                <td><input type="text" id="loan_2" name="weight"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">收缩压</td>
+                                <td><input type="text" id="loan_3" name="ap_hi"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">舒张压</td>
+                                <td><input type="text" id="loan_4" name="ap_lo"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">胆固醇 输入1或2或3</td>
+                                <td><input type="text" id="loan_5" name="cholesterol"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">葡萄糖 输入1或2或3</td>
+                                <td><input type="text" id="loan_6" name="gluc"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">是否长期抽烟</td>
+                                <td>
+                                    <select type="text" id="loan_7" name="smoke" style="text-align:center;text-align-last:center;padding-left:30px; margin:-0.6rem 0;" />
+                                    <option></option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>/>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">是否长期喝酒</td>
+                                <td>
+                                    <select type="text" id="loan_8" name="alco" style="text-align:center;text-align-last:center;padding-left:30px; margin:-0.6rem 0;" />
+                                    <option></option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>/>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">是否坚持运动</td>
+                                <td>
+                                    <select type="text" id="loan_9" name="active" style="text-align:center;text-align-last:center;padding-left:30px; margin:-0.6rem 0;b" />
+                                    <option></option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>/>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;font-size: 15px">
+                                    <h4>预测结果(1:患病概率高,2:患病概率低)</h4></td>
+                                <td><output type="text" id="predict" name="predict" style="font-size: 40px;color: #d2322d"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                    <br />
+                    <div id="yc">
+                            <button onclick="predict()" style="color: #00008b;font-size: 20px;color: #e4b9c0">
+                            点击预测
+                        </button>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    </div>
+    <!-- mrbox_top end -->
+    <div class="mrbox_top_right">
+        <div class="arightboxtop" style="height: 300px;width: 650px;display: none"><h2 class="tith2" style="font-size: 15px;color: #99b0f7">小贴士：如有需要为您推荐咨询医生</h2>
+            <p style="margin-left: 20px;font-size: 15px"> 方案一：</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医院:北京朝阳医院 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科室:心血管内科</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医生:刘放（曾赴美国耶鲁大学访问学习，擅长冠心病相关疾病诊断治疗） </p>
+            <p style="margin-left: 20px;font-size: 12px"> 联系电话：010-85231000</p><br>
+
+            <p style="margin-left: 20px;font-size: 15px"> 方案二：</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医院:武汉大学人民医院 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 科室:心血管内科</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医生：吕永楠（副主任医师，临床医学博士，悉尼大学博士后） </p>
+            <p style="margin-left: 20px;font-size: 12px"> 联系电话：027-88041911</p><br>
+            <p style="margin-left: 20px;font-size: 15px"> 方案三：</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医院:哈尔滨市第一医院  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科室:心血管内科</p>
+            <p style="margin-left: 20px;font-size: 12px"> 医生： 魏晓冬（擅长冠心病 心绞痛 高血压 心衰 心律失常 失眠 慢性肠胃炎 植物神经功能紊乱焦虑的治疗） </p>
+            <p style="margin-left: 20px;font-size: 12px"> 联系电话：0451-84883003</p><br>
+        </div>
+        <!-- mrbox_top_right end -->
+        <div class="mrbox_top_end" >
+            <div class="arightboxtop" style="height: 300px;width: 650px;margin-top: 30px"><h2 class="tith2" style="font-size: 15px;color: #e4b9c0">小贴士：快来看看心血管的预防方法吧！</h2>
+                <p style="margin-left: 20px;font-size: 15px;margin-top: 15px">心血管疾病的预防包括一级预防和二级预防</p><br>
+                <p style="margin-left: 20px;font-size: 15px"> 一级预防:</p>
+                <p style="margin-left: 20px;font-size: 15px">1、饮食:主张低盐、低脂、高纤维素饮食，多吃新鲜蔬菜</p>
+                <p style="margin-left: 20px;font-size: 15px">2、健康的生活方式:不吸烟，不喝酒，适当运动，规律作息</p>
+                <p style="margin-left: 20px;font-size: 15px">3、控制自己情绪:保持乐观心态，避免情绪激动</p><br>
+                <p style="margin-left: 20px;font-size: 15px">二级预防:</p>
+                <p style="margin-left: 20px;font-size: 15px">是为了降低再次发生的危险以及减轻致残率，即患病后防止再发病。首先要防止血栓，血管尤其是冠状动脉，冬季寒冷时容易收缩、痉挛、发生供血不足，并可能导致栓塞，因此要注意保暖。</p>
+                <a href="http://localhost:8080/searchInfo.html">
+                    <button   type="button" style="color: #1c1e2f;background: #e4b9c0;margin-left: 500px;height: 30px;width: 120px;margin-top: 10px">点我了解更多吧</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- mrbox_top_right end -->
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('aleftboxtmidd'));
+
+    option = {
+
+        title: {
+
+            textStyle: {
+                align: 'center',
+                color: '#fff',
+                fontSize: 20,
+            },
+            top: '5%',
+            left: 'center',
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '2%',
+            right: '4%',
+            bottom: '14%',
+            top:'16%',
+            containLabel: true
+        },
+        legend: {
+            data: ['金额'],
+            right: 10,
+            top:12,
+            textStyle: {
+                color: "#fff"
+            },
+            itemWidth: 12,
+            itemHeight: 10,
+            // itemGap: 35
+        },
+        xAxis: {
+            type: 'category',
+            data: ['2016','2017','2018','2019','2020','2021'],
+            axisLine: {
+                lineStyle: {
+                    color: 'white'
+
+                }
+            },
+            axisLabel: {
+                // interval: 0,
+                // rotate: 40,
+                textStyle: {
+                    fontFamily: 'Microsoft YaHei'
+                }
+            },
+        },
+
+        yAxis: {
+            type: 'value',
+            max:'1200',
+            axisLine: {
+                show: false,
+                lineStyle: {
+                    color: 'white'
+                }
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: 'rgba(255,255,255,0.3)'
+                }
+            },
+            axisLabel: {}
+        },
+        "dataZoom": [{
+            "show": true,
+            "height": 12,
+            "xAxisIndex": [
+                0
+            ],
+            bottom:'8%',
+            "start": 10,
+            "end": 90,
+            handleIcon: 'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
+            handleSize: '110%',
+            handleStyle:{
+                color:"#d3dee5",
+
+            },
+            textStyle:{
+                color:"#fff"},
+            borderColor:"#90979c"
+        }, {
+            "type": "inside",
+            "show": true,
+            "height": 15,
+            "start": 1,
+            "end": 35
+        }],
+        series: [{
+            name: '金额',
+            type: 'bar',
+            barWidth: '15%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#fccb05'
+                    }, {
+                        offset: 1,
+                        color: '#f5804d'
+                    }]),
+                    barBorderRadius: 12,
+                },
+            },
+            data: [ 470,512,573,654,632,746]
+        },
+        ]
+    };
+    myChart.setOption(option);
+</script>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('amiddboxtbott1'));
+    //                                         option = {
+    //                            color:['#7ecef4'],
+    //                              backgroundColor: 'rgba(1,202,217,.2)',
+    //                              grid: {
+    //                  											left:20,
+    //                  											right:20,
+    //                  											top:13,
+    //                  											bottom:6,
+    //                                        containLabel: true
+    //                  										},
+    //
+    //                                    xAxis: {
+    //                                        type: 'value',
+    //                                        axisLine:{
+    //                                         lineStyle:{
+    //                                           color:'rgba(255,255,255,.2)'
+    //                                         }
+    //                                       },
+    //                                       splitLine:{
+    //                                         lineStyle:{
+    //                                           color:'rgba(255,255,255,0)'
+    //                                         }
+    //                                       },
+    //                                       axisLabel:{
+    //                                           color:"rgba(255,255,255,0)"
+    //                                       },
+    //                                        boundaryGap: [0, 0.01]
+    //                                    },
+    //                                    yAxis: {
+    //                                        type: 'category',
+    //                                        axisLine:{
+    //                                         lineStyle:{
+    //                                           color:'rgba(255,255,255,.5)'
+    //                                         }
+    //                                       },
+    //                                       splitLine:{
+    //                                         lineStyle:{
+    //                                           color:'rgba(255,255,255,.1)'
+    //                                         }
+    //                                       },
+    //                                       axisLabel:{
+    //                                           color:"rgba(255,255,255,.5)"
+    //                                       },
+    //                                        data: ['流行性感冒','病毒性肝炎','其他感染性腹泻病','手足口病','肺结核']
+    //                                    },
+    //                                    series: [
+    //                                        {
+    //                                            name: '2021年',
+    //                                            type: 'bar',
+    //                                            barWidth :30,
+    //                                            itemStyle: {
+    //                                                normal: {
+    //                                                    color: new echarts.graphic.LinearGradient(
+    //                                                        1, 0, 0, 1,
+    //                                                        [
+    //                                                            {offset: 0, color: 'rgba(230,253,139,.7)'},
+    //                                                            {offset: 1, color: 'rgba(41,220,205,.7)'}
+    //                                                        ]
+    //                                                    )
+    //                                                }
+    //                                            },
+    //                                            data: [1145278, 1138781, 1062277,761355,670538]
+    //                                        }
+    //                                    ]
+    //                                };
+    //                          myChart.setOption(option);
+    option = {
+        color:['#d2d17c','#7fd7b1', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
+        backgroundColor: 'rgba(1,202,217,.2)',
+        grid: {
+            left:20,
+            right:30,
+            top:0,
+            bottom:20
+        },
+        legend: {
+            top: 5,
+
+            textStyle:{
+                fontSize:10,
+                color:'rgba(255,255,255,.6)'
+            },
+            data:['男','女','总数']
+        },
+        grid: {
+            left:20,
+            right:30,
+            top:40,
+            bottom:10,
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.2)'
+                }
+            },
+            splitLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.1)'
+                }
+            },
+            axisLabel:{
+                color:"rgba(255,255,255,.7)"
+            },
+            data: ['60-64','65-69','70-74','75-79','80-84','84以上']
+        },
+        yAxis: {
+            type: 'value',
+
+            max: 100,
+            interval: 20,
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.2)'
+                }
+            },
+            splitLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.1)'
+                }
+            },
+
+            axisLabel:{
+                color:"rgba(255,255,255,.7)",
+                formatter: '{value} %'
+            },
+        },
+        series: [
+            {
+                name:'男',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[8, 15, 18, 16, 18, 26]
+            },
+            {
+                name:'女',
+                type:'line',
+                stack: '总量',
+                data:[12, 11, 15,20,25,28]
+            },
+            {
+                name:'总数',
+                type:'line',
+                stack: '总量',
+                data:[20, 23, 25, 24, 35, 30]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('amiddboxtbott2'));
+    var option = {
+
+        title: {
+
+
+            textStyle: {
+                //color: 'black'
+                fontSize:15,
+            },
+            // subtext: '副标题',
+            // subtextStyle: {
+            //   color: 'blue'
+            // },
+            //padding: [0, 0, 10, 20]  // 位置
+
+
+            top: 0
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '4%',
+            bottom: '15%',
+            top: '13%',
+            containLabel: true
+        },
+        //      legend: {
+        //     data: ['3'],
+        //     right: 10,
+        //     top:12,
+        //     textStyle: {
+        //         color: "black"
+        //     },
+        //     itemWidth: 12,
+        //     itemHeight: 10,
+        //     // itemGap: 35
+        // },
+        xAxis: {
+            type: 'category',
+            data: ["知晓率", "治愈率", "控制率", "治疗控制率"],
+            axisLine: {
+                lineStyle: {
+                    color: '#ffffff'
+
+                }
+            },
+
+            axisLabel: {
+                interval: 0,
+                // rotate: 40,
+                fontSize: 10,
+                textStyle: {
+                    fontFamily: 'Microsoft YaHei'
+                }
+            },
+        },
+
+        yAxis: {
+            type: 'value',
+            //max: 'dataMax',
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: '#ffffff'
+                }
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: 'rgba(0,0,0,0.3)'
+                }
+            },
+            axisLabel: {}
+        },
+        dataZoom: [{
+            show: true,
+            height: 12,
+            xAxisIndex: [
+                0
+            ],
+            bottom: '10%',
+            startValue: 0,
+            endValue: 5,
+            handleIcon: 'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
+            handleSize: '110%',
+            handleStyle: {
+                color: "#d3dee5",
+
+            },
+            textStyle: {
+                color: "#ffffff"
+            },
+            borderColor: "#90979c"
+        }, {
+            type: "inside",
+            show: true,
+            height: 15,
+            start: 1,
+            end: 35
+        }],
+
+
+        series: [{
+
+            type: 'bar',
+            barWidth: '15%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#248ff7'
+                    }, {
+                        offset: 1,
+                        color: '#6851f1'
+                    }]),
+                    barBorderRadius: 11,
+                    label: {
+                        show: true,
+                        textStyle: {
+                            color: "#000"
+                        },
+                        position: "top",
+                    }
+                }
+            },
+            data: [45.6,41.1,13.8,33.6
+
+            ]
+        }]
+    };
+
+    myChart.setOption(option);
+</script>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('arightboxbott'));
+    option = {
+        color:['#7de494','#7fd7b1', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
+        backgroundColor: 'rgba(1,202,217,.2)',
+
+        grid: {
+            left: '5%',
+            right: '8%',
+            bottom: '7%',
+            top:'8%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.2)'
+                }
+            },
+            splitLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.1)'
+                }
+            },
+            axisLabel:{
+                color:"rgba(255,255,255,.7)"
+            },
+            data: ['6-08','6-09','6-10','6-11','6-12','6-13','6-14']
+        },
+        yAxis: {
+            type: 'value',
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.2)'
+                }
+            },
+            splitLine:{
+                lineStyle:{
+                    color:'rgba(255,255,255,.1)'
+                }
+            },
+            axisLabel:{
+                color:"rgba(255,255,255,.7)"
+            },
+        },
+        series: [
+            {
+                name:'2021年',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[120, 132, 101, 134, 90, 230, 210]
+            }
+
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+<!--这行代码可以删除-->
+<a style="display:none" href="http://www.bootstrapmb.com">bootstrap模板库</a>
+
+<script>
+    $("#back").click(function () {
+        $('#w').hide();
+        $('#jg').hide();
+        $('#ftttff').hide();
+        $('#back').hide();
+        $('#dd').hide();
+        $("#x").show();
+        $('#xt').show();
+        $('#bhc').hide()
+
+
+    });
+    $('#yc').click(function () {
+        $('#w').show();
+        $('#jg').show();
+        $('#ftttff').show();
+        $('#back').show();
+        $('#dd').show();
+        $("#x").hide();
+        $('#xt').hide();
+        $('#bhc').show();
+        $('#wwff').hide();
+        $('#wn').show()
+    });
+    $('#back').hide();
+    $('#dd').hide();
+    $('#w').hide();
+    $('#bhc').hide();
+    $('#wwff').show();
+    $('#wn').hide();
+
+    function predict() {
+        $('.arightboxtop').css("display","");
+        $.ajax({
+            method: "post",
+            url: '/xxgpredict/xxggetpredict',
+            data: {
+                "height": $('#loan_1').val(),
+                "weight": $('#loan_2').val(),
+                "ap_hi": $('#loan_3').val(),
+                "ap_lo": $('#loan_4').val(),
+                "cholesterol": $('#loan_5').val(),
+                "gluc": $('#loan_6').val(),
+                "smoke": $('#loan_7').val(),
+                "alco": $('#loan_8').val(),
+                "active": $('#loan_9').val(),
+
+            },
+            success: function (a) {
+
+                $('#predict').html(a);
+
+            }
+        });
+
+    }
+</script>
+
+</body>
+
+</html>

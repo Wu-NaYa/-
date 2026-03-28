@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html>
+	<head>
+	<title>智慧化医疗服务分析平台</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	 
+	<!-- Custom Theme files -->
+	<link href="index0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+	<link href="index0/css/snow.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="index0/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+  
+    <script type="text/javascript" src="index0/js/jquery.js"></script>
+    <script type="text/javascript" src="index0/js/echarts.min.js"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script> -->
+    <script type="text/javascript" src="index0/js/js.js"></script>
+
+  
+</head>
+
+
+<body>
+		
+	<div class="snow-container">
+			  <div class="snow foreground"></div>
+			  <div class="snow foreground layered"></div>
+			  <div class="snow middleground"></div>
+			  <div class="snow middleground layered"></div>
+			  <div class="snow background"></div>
+			  <div class="snow background layered"></div>
+			</div>
+<div class="head clearfix">
+    <h1 class="">智慧化医疗服务分析平台</h1>
+    <div class="time" id="showTime" style="color: #c4e3f3">2022/4/3 17:00:12</div>
+    <script>
+        var t = null;
+        t = setTimeout(time,1000);//開始运行
+        function time()
+        {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y=dt.getFullYear();
+            var mt=dt.getMonth()+1;
+            var day=dt.getDate();
+            var h=dt.getHours();//获取时
+            var m=dt.getMinutes();//获取分
+            var s=dt.getSeconds();//获取秒
+            document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+            t = setTimeout(time,1000); //设定定时器，循环运行
+        }
+
+    </script>
+</div>
+	<div class="main-agileits">
+		<!--form-stars-here-->
+		<div class="form-w3-agile" style="margin-top: 100px">
+			<h2 class="sub-agileits-w3layouts">登录系统</h2>
+			<form action="/toManagerLogin" method="post">
+				<input type="text" name="name" placeholder="用户名" required="" />
+				<input type="password" name="password" placeholder="密码" required="" />
+				<div class="submit-w3l">
+					<input type="submit" value="登录">
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

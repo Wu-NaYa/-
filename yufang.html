@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>人口疾病分析</title>
+<link href="css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/echarts.min.js" charset="utf-8"></script>
+<script src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+<script src="js/echarts-all.js" charset="utf-8"></script>
+<script src="js/yufang_js/chart_1.js" charset="utf-8"></script>
+<script src="js/yufang_js/chart_2.js" charset="utf-8"></script>
+<script src="js/yufang_js/chart_3.js" charset="utf-8"></script>
+
+<body>
+<div class="bnt">
+    <div class="topbnt_left fl">
+        <ul>
+
+            <li><a href="index.html">疾病分析</a></li>
+            <li class="active"><a href="yufang.html">疾病预防</a></li>
+
+
+        </ul>
+    </div>
+    <h1 class="tith1 fl">青少年群体眼部疾病预防</h1>
+    <div class=" fr topbnt_right">
+        <ul>
+            <li><a href="index0.html">返回首页</a></li>
+<!--            <li class="active"><a href="yufang.html">疾病预防</a></li>-->
+
+        </ul>
+
+    </div>
+</div>
+<!-- bnt end -->
+<div class="left1">
+    <div class="aleftboxttop"><h2 class="tith2">眼部疾病四大种类</h2>
+        <div class="lefttoday_number">
+            <div class="widget-inline-box text-center fl">
+                <!--<h3 class="ceeb1fd" >近视</h3>-->
+                <button style="background: url(images/chooseKuang.png);" onclick="window.open('https://baike.baidu.com/item/%E9%9D%92%E5%B0%91%E5%B9%B4%E8%BF%91%E8%A7%86')">
+                    <h3 class="ceeb1fd" >近视</h3></button>
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <button style="background: url(images/chooseKuang.png);" onclick="window.open('https://baike.baidu.com/item/%E9%9D%92%E5%B0%91%E5%B9%B4%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7/6945679')">
+                    <h3 class="c24c9ff">远视</h3></button>
+                <!--<h3 class="c24c9ff">心理</h3>-->
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <button style="background: url(images/chooseKuang.png);" onclick="window.open('https://baike.baidu.com/item/%E5%85%B3%E6%B3%A8%E9%9D%92%E5%B0%91%E5%B9%B4%E8%B4%AB%E8%A1%80/15643376?fr=aladdin')">
+                    <h3 class="cffff00">青光眼</h3></button>
+                <!--<h3 class="cffff00">贫血</h3>-->
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <button style="background: url(images/chooseKuang.png);" onclick="window.open('https://baike.baidu.com/item/%E9%9D%92%E5%B0%91%E5%B9%B4%E8%82%A5%E8%83%96')">
+                    <h3 class="c11e2dd">散光</h3></button>
+                <!--<h3 class="c11e2dd">肥胖</h3>-->
+            </div>
+        </div>
+        <!-- lefttoday_number end -->
+    </div>
+
+    <div class="aleftboxtmidd">
+        <h2 class="tith2">近视疾病预防</h2>
+
+
+        <div class="lefttoday_bar " >
+            <ul>
+                <li class="c1 big4" style="top: 29%;left: 15%;"><span>水果</span></li>
+                <li class="c2 big4" style="top: 89%;left: 25%;"><span>户外运动</span></li>
+                <li class="c3 big6" style="top: 19%;left: 40%;"><span>眼保健操</span></li>
+                <li class="c4 big4" style="top: 29%;left: 75%;"><span>正确坐姿</span></li>
+                <li class="c5 big4" style="top: 89%;left: 65%;"><span>改善室内照明</span></li>
+
+
+            </ul>
+        </div>
+        <!--<div id="aleftbox" class="arightboxbottcont2"></div>-->
+    </div>
+    <div class="aleftboxtbott">
+        <h2 class="tith2">眼部疾病种类占比</h2>
+        <div id="aleftboxtmidd" class="arightboxbottcont2" ></div>
+    </div>
+
+</div>
+</div>
+<!--  left1 end -->
+<div class="mrbox">
+    <div class="mrbox_topmidd" style="width: 69%;">
+        <div class="amiddboxttop">
+            <h2 class="tith2 pt1">青少年眼部疾病预防</h2>
+
+            <body>
+            <video style="position: absolute;left:350px;" width="780" height="350"  controls="controls" playsinline="true"  webkit-playsinline="true" x5-video-player-type='h5' x5-video-player-fullscreen='true' poster="imgSrc" >
+                <source src="img/video1/yan.mp4" type="video/mp4"></source>
+            </video>
+            </body>
+        </div>
+        <!--  amiddboxttop end-->
+        <div class="amidd_bott">
+            <div class="amiddboxtbott1 fl" >
+                <h2 class="tith2 pt1">眼部疾病男女患病分析</h2>
+                <div id="amiddboxtbott1" class="amiddboxtbott1content" ></div>
+            </div>
+
+            <div class="amiddboxtbott2 fl"><h2 class="tith2 pt1">各类眼部疾病患病人数</h2>
+                <div id="amiddboxtbott2" class="amiddboxtbott2content"></div>
+            </div>
+        </div>
+        <!-- amidd_bott end -->
+    </div>
+    <!-- mrbox_top end -->
+    <div class="mrbox_top_right">
+        <div class="hdrightboxtop"><h2 class="tith2">青少年近视科普</h2>
+            <div class="lefttoday_tit" style=" height:4%"><p class="fl">点击可查阅</p></div>
+            <div class="left2_table hdleft2_table" >
+                <ul>
+                    <li>
+                        <p class="fl" onclick="window.open('https://baike.baidu.com/item/%E9%9D%92%E5%B0%91%E5%B9%B4%E8%BF%91%E8%A7%86')">
+                            <b>近视</b><br>
+                            我国是近视眼的高发地区，青少年近视眼的患病率逐年升高，并有向低龄化、高度数发展的趋势。而且，升学压力、与生活现代化相关的环境因素如电脑普及等，还将对近视眼患病率产生持续影响。
+                            中小学生视力下降是当前影响青少年健康的一个重要问题。<br>
+                        </p>
+                    </li>
+                    <li class="bg" >
+                        <p class="fl">
+                            <p>近视程度</p>
+                            <p>轻度近视、中度近视和高度近视</p>
+                            <p>轻度近视：≤300度（≤-3.00D）</p>
+                            <p>中度近视：300度~ 600度（-3.00D~-6.00D）</p>
+                            高度近视：>600度（>-6.00D）
+                        </p>
+                    </li>
+                    <li>
+                        <p class="fl">
+                            <p >近视因素</p>
+                        <p style="font-size: 18px">1、遗传</p>
+                        <p style="font-size: 18px">2、免疫与代谢异常</p>
+                        <p style="font-size: 18px">3、烟酒嗜好</p>
+                        <p style="font-size: 18px">4、营养及新陈代谢障碍</p>
+                        <p style="font-size: 18px">5、外伤</p>
+                            <br>
+                        </p>
+
+                    </li>
+                    <li class="bg" >
+                        <p class="fl">
+                            <b>近视人群小贴士</b><br>
+                            近距离用眼时间，一般成年人在工作时连续工作1小时，应该休息10-15分钟，看看远处，让眼睛得到放松。学生应在40-45分钟停下来休息，儿童一般连续用眼20-30分钟应停下来休息，休息时看远处可一定程度减缓近视的发展。看书距离需注意，不可在行进路程中看书，不可躺着看书，此为不良的用眼习惯<br>
+                        </p>
+                    </li>
+
+                </ul>
+                <a href="http://localhost:8080/searchInfo.html">
+                    <button   type="button" style="color: #e4b9b9 ; margin-left: 200px;bottom: 30px;font-size: 5px;
+    				    	border-bottom: #e4b9c0 ;width: 120px;height: 22px;background: #1D6FA3">点击这可以了解更多哦</button>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- mrbox_top_right end -->
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

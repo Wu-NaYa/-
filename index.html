@@ -1,0 +1,208 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>疾病科普疾病分析</title>
+<link href="css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/echarts.min.js" charset="utf-8"></script>
+<script src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+<script src="js/echarts-wordcloud.js" charset="utf-8"></script>
+<script src="js/echarts-all.js" charset="utf-8"></script>
+<script src="js/index_chart6.js" charset="utf-8"></script>
+<script src="js/index_js/chart_1.js" charset="utf-8"></script>
+<script src="js/index_js/chart_2.js" charset="utf-8"></script>
+<script src="js/index_js/chart_3.js" charset="utf-8"></script>
+<script src="js/index_js/chart_4.js" charset="utf-8"></script>
+<script src="js/index_js/chart_5.js" charset="utf-8"></script>
+<script src="js/index_js/chart_6.js" charset="utf-8"></script>
+<script src="js/index_js/chart_7.js" charset="utf-8"></script>
+<body>
+<div class="bnt">
+    <div class="topbnt_left fl">
+        <ul>
+            <!--       <li ><a href="kepu.html">疾病科普</a></li>-->
+
+            <li class="active"><a href="index.html">疾病分析</a></li>
+            <li><a href="yufang.html">疾病预防</a></li>
+        </ul>
+    </div>
+    <h1 class="tith1 fl">青少年群体眼部疾病分析</h1>
+    <div class=" fr topbnt_right">
+        <ul>
+            <li><a href="index0.html">返回首页</a></li>
+
+        </ul>
+
+    </div>
+</div>
+<!-- bnt end -->
+<div class="puleft fl" style="width: 400px">
+    <div class="pulefttop"><h2 class="tith2"><span>青少年眼部问题</span></h2>
+        <div  id="topmap" class="box pbox" style="height: 180px">
+
+        </div>
+        <!-- lefttoday_number end -->
+    </div>
+    <div class="puleftboxtmidd" >
+        <h2 class="tith2">眼科用药类型占比</h2>
+        <div class="box pbox"style="height: 180px">
+            <div id="amiddboxtbott3" class="amiddboxtbott2content" >
+
+            </div>
+        </div>
+    </div>
+    <div class="puleftboxtbott">
+        <h2 class="tith2 pt1">青少年近视疾病分析</h2>
+        <div class="box pbox">
+            <div class="lefttoday_bar pulefttoday_bar fl">
+                <ul>
+                    <li class="c6 big4" style="top: 19%;left: 16%;"><span>远视</span></li>
+                    <li class="c1 big4" style="top: 49%;left: 15%;"><span>近视</span></li>
+                    <li class="c4 big6" style="top: 19%;left: 35%;"><span>斜视</span></li>
+
+                    <li class="c2 big4" style="top: 59%;left: 35%;"><span>散光</span></li>
+                    <li class="c5 big4" style="top: 27%;left: 65%;"><span>其他</span></li>
+
+                    <li class="c2 big0" style="top: 75%;left: 55%;"></li>
+                    <li class="c3 big0" style="top: 75%;left: 15%;"></li>
+                </ul>
+            </div>
+            <div class="pvr fr pulefttoday_bar2" >
+
+                <div id="purightboxtop" class="puleftbox2bott_cont" ></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!--  left1 end -->
+<div class="fl pt6 puleft2" style="width: 650px">
+    <div class="amiddboxttop">
+        <h2 class="tith2 pt1">全国学生近视变化率</h2>
+        <div id="amiddboxtbott2" class="amiddboxtbott2content"></div>
+
+    </div>
+    <!--  amidd_bott end-->
+    <div class="pmiddboxtbott" >
+        <h2 class="tith2 pt1">眼部疾病对比分析图</h2>
+
+        <div id="pumiddboxtbott1" class="amiddboxtbott2content" style="height: 180px"></div>
+
+    </div>
+    <!-- amidd_bott end -->
+</div>
+<!-- mrbox_top end -->
+<div class="mr_right fl" style="width: 400px">
+    <div class="purightboxtop"><h2 class="tith2 pt12">2018-2020年中国近视眼手术有效病例数</h2>
+        <div  id = "lefttoday_number"  class="lefttoday_number">
+
+
+        </div>
+    </div>
+    <div class="purightboxmidd"><h2 class="tith2 pt12">2014-2020年中国眼科医院数量走势</h2>
+        <div id="purightboxmidd" class="purightboxmiddcont"></div>
+    </div>
+    <div class="purightboxbott"><h2 class="tith2 pt12">近视程度</h2>
+        <div id="purightboxbott" class="purightboxbottcont" ></div>
+    </div>
+</div>
+<!-- mrbox_top_right end -->
+</div>
+
+
+</div>
+<script type="text/javascript">
+    $(function(){
+        //使用echarts.init()方法初始化一个Echarts实例，在init方法中传入echarts map的容器 dom对象
+        var mapChart = echarts.init(document.getElementById('topmap'));
+        // mapChart的配置
+        var option = {
+            backgroundColor: 'rgba(1,202,217,.2)',
+            tooltip: {},
+            series: [ {
+                type: 'wordCloud',
+                gridSize: 2,
+                sizeRange: [12, 50],
+                rotationRange: [-90, 90],
+                shape: 'pentagon',
+                width: 600,
+                height: 400,
+                drawOutOfBound: true,
+                textStyle: {
+                    normal: {
+                        color: function () {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160)
+                            ].join(',') + ')';
+                        }
+                    },
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                data: [
+                    {
+                        name: '眼部问题',
+                        value: 9,
+                        textStyle: {
+//                              normal: {
+//                                  color: 'black'
+//                              },
+                            emphasis: {
+                                color: 'red'
+                            }
+                        }
+                    },
+                    {
+                        "value": "10",
+                        "name": "青光眼"
+                    },{
+
+                        "value": "10",
+                        "name": "散光"
+                    },{
+
+                        "value": "9",
+                        "name": "近视"
+                    },{
+
+                        "value": "10",
+                        "name": "远视"
+                    },{
+
+                        "value": "5",
+                        "name": "斜视"
+                    },{
+
+                        "value": "6",
+                        "name": "角膜发炎"
+                    },{
+
+                        "value": "8",
+                        "name": "结膜发炎"
+                    },{
+
+                        "value": "7",
+                        "name": "结膜组织增生"
+                    },{
+
+                        "value": "9",
+                        "name": "眼睛肿胀"
+                    }
+
+                ]
+            } ]
+        };
+        //设置图表的配置项
+        mapChart.setOption(option);
+
+    });
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,726 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>疾病疾病分析</title>
+<link href="css/style3.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+<script src="js/echarts.min.js" charset="utf-8"></script>
+<script src="js/people_js/chart_1.js" charset="utf-8"></script>
+<script src="js/people_js/chart_4.js" charset="utf-8"></script>
+<script src="js/people_js/chart_5.js" charset="utf-8"></script>
+<script src="js/people_js/chart_6.js" charset="utf-8"></script>
+<script src="js/people_js/chart_7.js" charset="utf-8"></script>
+
+<body>
+<div class="bnt">
+  <div class="topbnt_left fl">
+   <ul><li><a href="analysis.html">疾病科普</a></li>
+      <li class="active"><a href="people.html">疾病分析</a></li>
+      
+ 
+   </ul>
+  </div>
+  <h1 class="tith1 fl">中年群体疾病分析</h1>
+  <div class=" fr topbnt_right">
+    <ul>
+        <li><a href="index0.html">返回首页</a></li>
+<!--       <li><a href="activity.html">养生</a></li>-->
+       <li><a href="traffic.html">疾病预测</a></li>
+       
+    </ul>
+   
+  </div>
+</div>
+<!-- bnt end -->
+<div class="left1 pleft1" style="width: 380px">
+    <div class="plefttoday"><h2 class="tith2">2016-2021全球乳腺癌发病人数预测图</h2>
+    
+    <div id="chart_1" class="lefttoday_number">
+      <div  class="widget-inline-box text-center fl">
+        
+      </div>
+    </div>
+    <!-- lefttoday_number end -->
+    <!--  lefttoday_bar end-->
+    </div>
+    <div class="lpeftmidbot">
+      <h2 class="tith2">不同年龄乳腺癌患病人数</h2>
+      <div id="lpeftmidbot" class="lpeftmidbotcont"></div>
+  </div>
+    <div class="lpeftbot">
+      <h2 class="tith2">乳腺癌患者性别占比</h2>
+      <div id="lpeftbot" class="lpeftbotcont" ></div>
+  </div>
+</div>
+<!--  left1 end -->
+<!--<div class="left2">-->
+<!--&lt;!&ndash;  <div class="pleftbox2top">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2 class="tith2">肺部疾病治疗对比</h2>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div id="pleftbox2top" class="pleftbox2topcont"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="pleftbox2midd"><h2 class="tith2">肝脏疾病患者与非患者体内酶数量对比</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div id="pleftbox2midd" class="pleftbox2middcont"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  <div class="lpeft2bot">-->
+<!--    <h2 class="tith2">肝脏疾病数据疾病分析</h2>-->
+
+<!--    <div class="pvr fl liwp lpeftb2otcont1" style="height:80%;" >-->
+<!--     -->
+<!--      <div id="pleftbox2bott_cont"class="lpeftb2otcont"  style="height:100%;"></div>-->
+<!--    </div>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+</div>
+<div class="mrbox prbox" style="width: 1000px">
+      <div class="mrbox_top">
+          <div class="mrbox_top_midd">
+              <div class="mrboxtm-mbox" style="height: 445px"><h2 class="tith2 pt1">2015-2021年乳腺癌患病人数图</h2>
+                <div  id="chart_map"  class="mrboxtm-map" ></div>
+
+              </div>
+<!--  map end-->
+<!--                <div class="pmrboxbottom"><h2 class="tith2 pt1">治疗肺部疾病的人数</h2>-->
+<!--                    <div id="pmrboxbottom" class="pmrboxbottomcont" ></div>-->
+<!--                </div>-->
+          </div>
+        <!-- mrbox_top_midd end -->
+        <div class="mrbox_top_right">
+          
+            <!-- pmrtop  -->
+            <div class="pleftbox2top" style="height: 240px;width: 380px">
+                <h2 class="tith2">肝脏疾病治疗对比</h2>
+
+                <div id="pleftbox2top" class="pleftbox2topcont"></div>
+            </div>
+            <div class="pleftbox2midd" style="height: 180px;width: 380px"><h2 class="tith2">肝脏疾病治疗人数图</h2>
+                <div id="pleftbox2midd" class="pleftbox2middcont"></div>
+            </div>
+
+<!--            <div class="pmrtop" style=" margin-top: 3.3%">-->
+<!--              <h2 class="tith2">肺部疾病人群疾病分析</h2>-->
+<!--              <div class="pmrtop_cont pmrtop_wid" >-->
+<!--                <div class="pmrtop_contheight">-->
+<!--                <div class="widget-inline-box text-center fl">-->
+<!--  							</div>-->
+<!--                <div class="widget-inline-box text-center fl" >-->
+
+<!--  							</div>-->
+<!--                <div class="widget-inline-box text-center fl" >-->
+
+<!--                </div>-->
+<!--                </div>-->
+<!--                <div id="pmrmidd" class="pmrmiddcont" ></div>-->
+<!--              </div>-->
+<!--              </div>-->
+              <!-- pmrtop  -->
+
+        </div>
+      </div>
+
+
+      <div class="mrbox_bottom" style="width: 1100px">
+          <div class="rbottom_box1" style="width: 680px"><h2 class="tith2">肝脏疾病患者与非患者体内酶数量对比</h2>
+          <div id="prbottom_box1" class="prbottom_box1cont"></div></div>
+          
+          <div class="rbottom_box3" style="width: 380px"><h2 class="tith2 pt2">肝脏疾病人群疾病分析</h2>
+          <div id="prbottom_box3" class="prbottom_box1cont"></div></div>
+
+      </div>
+</div>
+
+
+</script>
+
+<script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('lpeftmidbot'));
+        option = {
+
+            tooltip: {},
+            radar: {
+                // shape: 'circle',
+                radius: '60%',
+                indicator: [
+                    { name: '20-30岁',max:90},
+                    { name: '30-40岁',max:90},
+                    { name: '40-50岁',max:90},
+                    { name: '50-60岁',max:90},
+                    { name:'60-70岁',max:90},
+                    { name:'70-80岁',max:90}
+                ]
+            },
+            series: [{
+                name: '人数/万',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                data : [
+                    {
+                        value : [51,60,85,65,45,35,20],
+                        name : '人数/万',
+                    },
+
+                ]
+            }]
+        };
+        var app = {
+            currentIndex: -1,
+        };
+        setInterval(function () {
+            var dataLen = option.series[0].data.length;
+            // 取消之前高亮的图形
+            myChart.dispatchAction({
+                type: 'downplay',
+                seriesIndex: 0,
+                dataIndex: app.currentIndex
+            });
+            app.currentIndex = (app.currentIndex + 1) % dataLen;
+            //console.log(app.currentIndex);
+            // 高亮当前图形
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                dataIndex: app.currentIndex,
+            });
+            // 显示 tooltip
+            myChart.dispatchAction({
+                type: 'showTip',
+                seriesIndex: 0,
+                dataIndex: app.currentIndex
+            });
+        }, 1000);
+        myChart.setOption(option);
+    </script>
+
+<script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('lpeftbot'));
+            option = {
+            /*backgroundColor: '#000',*/
+            "animation": true,
+            "title": {
+                /*"text": 24,*/
+               /* "subtext": "沥青工",*/
+                "x": "center",
+                "y": "center",
+                "textStyle": {
+                    "color": "#fff",
+                    "fontSize": 10,
+                    "fontWeight": "normal",
+                    "align": "center",
+                    "width": "200px"
+                },
+                "subtextStyle": {
+                    "color": "#fff",
+                    "fontSize": 12,
+                    "fontWeight": "normal",
+                    "align": "center"
+                }
+            },
+            "legend": {
+                "width": "100%",
+                "left": "center",
+                "textStyle": {
+                    "color": "#fff",
+                    "fontSize": 12
+                },
+                "icon": "circle",
+                "right": "0",
+                "bottom": "0",
+                "padding": [15, 20],
+                "itemGap": 5,
+                "data": ["男", "女"]
+            },
+            "series": [{
+                "type": "pie",
+                "center": ["50%", "40%"],
+                "radius": ["20%", "43%"],
+                "color": ["#FEE449", "#00FFFF"],
+                "startAngle": 135,
+                "labelLine": {
+                    "normal": {
+                        "length": 15
+                    }
+                },
+                "label": {
+                    "normal": {
+                        "formatter": "{b|{b}:}  {per|{d}%} ",
+                        "backgroundColor": "rgba(255, 147, 38, 0)",
+                        "borderColor": "transparent",
+                        "borderRadius": 4,
+                        "rich": {
+                            "a": {
+                                "color": "#999",
+                                "lineHeight": 12,
+                                "align": "center"
+                            },
+                            "hr": {
+                                "borderColor": "#aaa",
+                                "width": "100%",
+                                "borderWidth": 1,
+                                "height": 0
+                            },
+                            "b": {
+                                "color": "#b3e5ff",
+                                "fontSize": 16,
+                                "lineHeight": 33
+                            },
+                            "c": {
+                                "fontSize": 14,
+                                "color": "#eee"
+                            },
+                            "per": {
+                                "color": "#FDF44E",
+                                "fontSize": 14,
+                                "padding": [5, 8],
+                                "borderRadius": 2
+                            }
+                        },
+                        "textStyle": {
+                            "color": "#fff",
+                            "fontSize": 16
+                        }
+                    }
+                },
+                "emphasis": {
+                    "label": {
+                        "show": true,
+                        "formatter": "{b|{b}:}  {per|{d}%}  ",
+                        "backgroundColor": "rgba(255, 147, 38, 0)",
+                        "borderColor": "transparent",
+                        "borderRadius": 4,
+                        "rich": {
+                            "a": {
+                                "color": "#999",
+                                "lineHeight": 22,
+                                "align": "center"
+                            },
+                            "hr": {
+                                "borderColor": "#aaa",
+                                "width": "100%",
+                                "borderWidth": 1,
+                                "height": 0
+                            },
+                            "b": {
+                                "color": "#fff",
+                                "fontSize": 14,
+                                "lineHeight": 33
+                            },
+                            "c": {
+                                "fontSize": 14,
+                                "color": "#eee"
+                            },
+                            "per": {
+                                "color": "#FDF44E",
+                                "fontSize": 14,
+                                "padding": [5, 6],
+                                "borderRadius": 2
+                            }
+                        }
+                    }
+                },
+                "data": [{
+                    "name": "男",
+                    "value": 1
+                }, {
+                    "name": "女",
+                    "value": 99
+                }]
+            }, {
+                "type": "pie",
+                "center": ["50%", "40%"],
+                "radius": ["15%", "14%"],
+                "label": {
+                    "show": false
+                },
+                "data": [{
+                    "value": 78,
+                    "name": "实例1",
+                    "itemStyle": {
+                        "normal": {
+                            "color": {
+                                "x": 0,
+                                "y": 0,
+                                "x2": 1,
+                                "y2": 0,
+                                "type": "linear",
+                                "global": false,
+                                "colorStops": [{
+                                    "offset": 0,
+                                    "color": "#9F17FF"
+                                }, {
+                                    "offset": 0.2,
+                                    "color": "#01A4F7"
+                                }, {
+                                    "offset": 0.5,
+                                    "color": "#FE2C8A"
+                                }, {
+                                    "offset": 0.8,
+                                    "color": "#FEE449"
+                                }, {
+                                    "offset": 1,
+                                    "color": "#00FFA8"
+                                }]
+                            }
+                        }
+                    }
+                }]
+            }]
+        };
+            myChart.setOption(option);
+        </script>
+
+
+<script type="text/javascript">
+                            var myChart = echarts.init(document.getElementById('pleftbox2bott_cont'));
+                            
+                            var ydata = [{
+            name: '甲型肝炎',
+            value: 10
+        },
+            {
+                name: '乙型肝炎',
+                value: 13
+            },
+            {
+                name: '丙型肝炎',
+                value: 7
+            },
+            {
+                name: '戊型肝炎',
+                value: 52
+            },
+            {
+                name: '其他类肝炎',
+                value: 17
+            },
+           
+            
+        ];
+        var color = ["#8d7fec", "#5085f2", "#e75fc3", "#f87be2", "#f2719a"]
+        var xdata = ['甲型肝炎', "乙型肝炎", "丙型肝炎", "戊型肝炎", '其他类肝炎'];
+
+
+                            option = {
+            /*backgroundColor: "rgba(255,255,255,1)",*/
+            color: color,
+            legend: {
+                orient: "vartical",
+                x: "left",
+                top: "center",
+                left: "53%",
+                bottom: "0%",
+                data: xdata,
+                itemWidth: 8,
+                itemHeight: 8,
+                textStyle: {
+                    color: '#fff'
+                },
+                /*itemGap: 16,*/
+                /*formatter:function(name){
+                  var oa = option.series[0].data;
+                  var num = oa[0].value + oa[1].value + oa[2].value + oa[3].value+oa[4].value + oa[5].value + oa[6].value + oa[7].value+oa[8].value + oa[9].value ;
+                  for(var i = 0; i < option.series[0].data.length; i++){
+                      if(name==oa[i].name){
+                          return ' '+name + '    |    ' + oa[i].value + '    |    ' + (oa[i].value/num * 100).toFixed(2) + '%';
+                      }
+                  }
+                }*/
+
+                formatter: function(name) {
+                    return '' + name
+                }
+            },
+            series: [{
+                type: 'pie',
+                clockwise: false, //饼图的扇区是否是顺时针排布
+                minAngle: 2, //最小的扇区角度（0 ~ 360）
+                radius: ["20%", "60%"],
+                center: ["30%", "45%"],
+                avoidLabelOverlap: false,
+                itemStyle: { //图形样式
+                    normal: {
+                        borderColor: '#ffffff',
+                        borderWidth: 1,
+                    },
+                },
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center',
+                        formatter: '{text|{b}}\n{c} ({d}%)',
+                        rich: {
+                            text: {
+                                color: "#fff",
+                                fontSize: 14,
+                                align: 'center',
+                                verticalAlign: 'middle',
+                                padding: 8
+                            },
+                            value: {
+                                color: "#8693F3",
+                                fontSize: 24,
+                                align: 'center',
+                                verticalAlign: 'middle',
+                            },
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 24,
+                        }
+                    }
+                },
+                data: ydata
+            }]
+        };
+                            myChart.setOption(option);
+                            setTimeout(function() {
+            myChart.on('mouseover', function(params) {
+                if (params.name == ydata[0].name) {
+                    myChart.dispatchAction({
+                        type: 'highlight',
+                        seriesIndex: 0,
+                        dataIndex: 0
+                    });
+                } else {
+                    myChart.dispatchAction({
+                        type: 'downplay',
+                        seriesIndex: 0,
+                        dataIndex: 0
+                    });
+                }
+            });
+
+            myChart.on('mouseout', function(params) {
+                myChart.dispatchAction({
+                    type: 'highlight',
+                    seriesIndex: 0,
+                    dataIndex: 0
+                });
+            });
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                dataIndex: 0
+            });
+        }, 1000);
+
+        myChart.currentIndex = -1;
+
+        setInterval(function () {
+            var dataLen = option.series[0].data.length;
+            // 取消之前高亮的图形
+            myChart.dispatchAction({
+                type: 'downplay',
+                seriesIndex: 0,
+                dataIndex: myChart.currentIndex
+            });
+            myChart.currentIndex = (myChart.currentIndex + 1) % dataLen;
+            // 高亮当前图形
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                dataIndex: myChart.currentIndex
+            });
+        }, 1000);
+
+        
+        /*myChart.setOption(option);*/
+        window.addEventListener("resize",function(){
+            myChart.resize();
+        });
+                        </script>
+<script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('pmrboxbottom'));
+                                option = {
+ 
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+  	 textStyle: {
+                    color: '#fff'
+                },
+    data: ['0-30', '30-40', '40-50','50-60','>=60']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+     axisLine: {
+            lineStyle: {
+              color: 'white'
+
+            }
+          },
+          axisLabel: {
+            // interval: 0,
+            // rotate: 40,
+            textStyle: {
+              fontFamily: 'Microsoft YaHei'
+            }
+          },
+    data: ['2015', '2017', '2019','2021']
+  },
+  yAxis: {
+    type: 'value',
+     axisLine: {
+            show: false,
+            lineStyle: {
+              color: 'white'
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: 'rgba(255,255,255,0.3)'
+            }
+          },
+  },
+  
+  series: [
+  
+    {
+      name: '0-30',
+      type: 'line',
+      stack: 'Total',
+      data: [12000, 13200, 10100, 13400]
+    },
+    {
+      name: '30-40',
+      type: 'line',
+      stack: 'Total',
+      data: [22000, 18200, 19100, 23400]
+    },
+    {
+      name: '40-50',
+      type: 'line',
+      stack: 'Total',
+      data: [15000, 23200, 20100, 15400]
+    },
+    {
+      name: '50-60',
+      type: 'line',
+      stack: 'Total',
+      data: [32000, 33200, 30100, 33400]
+    },
+    {
+      name: '>=60',
+      type: 'line',
+      stack: 'Total',
+      data: [82000, 93200, 90100, 93400]
+    }
+  ]
+};
+                                myChart.setOption(option);
+                            </script>
+
+<script type="text/javascript">
+      var myChart = echarts.init(document.getElementById('prbottom_box3'));
+      var pieOption = {
+        data: [
+            { value: 236, name: '老年人' },
+            { value: 1595, name: '中年人' },
+            { value: 158, name: '青少年' },
+            
+        ],
+    },
+    option = {
+        tooltip: {
+            trigger: 'item',
+        },
+         title: {
+          
+          top: "50%",
+          left: "50%",
+          
+          itemGap: 5,
+          textStyle: {
+            color: "#45a0e8",
+            fontSize: 24
+          },
+          subtextStyle: {
+            color: "#61bbff",
+            fontSize: 20
+          },
+          textAlign: "center"
+        },
+        series: [
+            {
+                type: 'pie',
+                radius: ['30%', '50%'],
+                center: ['50%', '50%'],
+                clockwise: false,
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#61b7ce',
+                        },
+                    },
+                },
+                label: {
+                    color: 'rgba(255,255,255,0.65)',
+                    formatter: function (params) {
+                        return `{normal|${params.value}台}\r\r\n{value|${params.data.name}}`;
+                    },
+                    rich: {
+                        normal: {
+                            //   color: "#8A8A8A",
+                            fontSize: 16,
+                            align: 'left',
+                        },
+                        value: {
+                            fontSize: 14,
+                            //   color: "#8A8A8A",
+                            fontWeight: 600,
+                            padding: [5, 0, 0, 0],
+                        },
+                    },
+                },
+                itemStyle: {
+                    normal: {
+                        borderWidth: 3,
+                        borderColor: '#0a2d39',
+                    },
+                },
+                data: pieOption.data ? pieOption.data : 0,
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    },
+                },
+            },
+        ],
+    };
+
+
+                                    myChart.setOption(option);
+                                </script>
+
+<!--<script type="text/javascript">-->
+<!--    var myChart = echarts.init(document.getElementById('mrboxtm-map'));-->
+
+<!--</script>-->
+
+    <!--这行代码可以删除-->
+    <a style="display:none" href="http://www.bootstrapmb.com">bootstrap模板库</a>
+
+
+
+
+</body>
+</html>

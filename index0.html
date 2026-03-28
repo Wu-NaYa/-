@@ -1,0 +1,181 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>智慧化医疗服务分析平台</title>
+	<script type="text/javascript" src="index0/js/jquery.js"></script>
+	<script type="text/javascript" src="index0/js/echarts.min.js"></script>
+	<script type="text/javascript" src="index0/js/area_echarts.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
+	<script type="text/javascript" src="index0/js/js.js"></script>
+	<link rel="stylesheet" href="index0/css/style.css">
+</head>
+
+<body>
+<div class="head clearfix">
+	<h1 class="">智慧化医疗服务分析平台</h1>
+	<div class="time" id="showTime">2022/4/3 17:00:12</div>
+	<script>
+		var t = null;
+		t = setTimeout(time,1000);//開始运行
+		function time()
+		{
+			clearTimeout(t);//清除定时器
+			dt = new Date();
+			var y=dt.getFullYear();
+			var mt=dt.getMonth()+1;
+			var day=dt.getDate();
+			var h=dt.getHours();//获取时
+			var m=dt.getMinutes();//获取分
+			var s=dt.getSeconds();//获取秒
+			document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+			t = setTimeout(time,1000); //设定定时器，循环运行
+		}
+
+	</script>
+</div>
+<div class="mainbox">
+
+	<ul class="clearfix nav1">
+		<li style="width: 26%">
+			<div class="box">
+				<div class="tit"><span><a href="index.html">青少年相关</a></span><p></p></div>
+				<div class="boxnav" style="height: 320px;">
+					<ul class="drqk clearfix">
+						<li>
+							<div class="icon"><img src="index0/images/icona.png"></div>
+							<div><span>全国近视人数</span>
+								<p><em>6亿</em><i>人</i></p></div>
+						</li>
+						<li><div class="icon"><img src="index0/images/iconb.png"></div>
+							<div><span>青少年近视人数</span>
+								<p><em>3亿</em><i>人</i></p></div></li>
+						<li><div class="icon"><img src="index0/images/iconc.png"></div>
+							<div><span>小学生近视人数占比</span>
+								<p><em>45</em><i>%</i></p></div></li>
+						<li><div class="icon"><img src="index0/images/icond.png"></div>
+							<div><span>初中生近视人数占比</span>
+								<p><em>74</em><i>%</i></p></div></li>
+						<li><div class="icon"><img src="index0/images/icone.png"></div>
+							<div><span>高中生近视人数占比</span>
+								<p><em>83</em><i>%</i></p></div></li>
+						<li><div class="icon"><img src="index0/images/iconf.png"></div>
+							<div><span>大学生近视人数占比</span>
+								<p><em>87</em><i>%</i></p></div></li>
+					</ul>
+				</div>
+			</div>
+
+<!--			老年人-->
+			<div class="box" style="height: 320px">
+				<div class="tit"><span><a href="kepu1.html">老年人相关</a> </span><p></p></div>
+				<div class="boxnav" style="height:140px;">
+					<table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+							<th>发病统计</th>
+							<th>心血管</th>
+							<th>高血压</th>
+							<th>糖尿病</th>
+						</tr>
+						<tr>
+							<td>发病数（万）</td>
+							<td>0.03<span class="text-b">↓0.01%</span></td>
+							<td>163.00<span class="text-d">↑4.01%</span></td>
+							<td>163.00<span class="text-d">↑4.01%</span></td>
+						</tr>
+						<tr>
+							<td>发病率（%）</td>
+							<td>0.3<span class="text-b">↓0.01%</span></td>
+							<td>100%<span class="text-d">↑4.01</span></td>
+							<td>81.92%<span class="text-d">↑4.01</span></td>
+						</tr>
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+		</li>
+		<li style="width:48%">
+
+			<div class="box" style="position: relative">
+				<div class="map">
+					<div class="map1"><img src="index0/images/lbx.png"></div>
+					<div class="map2"><img src="index0/images/jt.png"></div>
+					<div class="map3"><img src="index0/images/map.png"></div>
+
+				</div>
+
+				<div class="" id="map" style="height: 557px; position: relative; z-index: 100"></div>
+
+
+			</div>
+
+		</li>
+		<li style="width: 26%">
+
+<!--			中年人-->
+			<div class="box">
+				<div class="tit"><span><a href="analysis.html">中年人相关</a> </span><p></p></div>
+				<div class="boxnav" style="height: 250px;">
+					<ul class="jcjg">
+						<li><h3>医院</h3>
+<!--							<div class="jcnav">-->
+<!--								<img src="index0/images/icon1.png">-->
+<!--								<div class="jcnavp" align="left">-->
+									<div class="fora" align="left"><ol>北京佑安医院 </ol><div class="forb"></div></div><br><br>
+									<div class="fora"><ol>武汉大学人民医院</ol><div class="forb"></div></div><br>
+									<div class="fora"><ol>浙江大学附属第一医院</ol><div class="forb"></div></div><br>
+<!--								</div>-->
+<!--							</div>-->
+						</li>
+						<li><h3>科室</h3>
+<!--							<div class="jcnav">-->
+<!--								<img src="index0/images/icon2.png">-->
+<!--								<div class="jcnavp">-->
+									<div class="fora" align="left"><ol align="center">肝胆外科</ol><div class="forb"></div></div><br><br>
+									<div class="fora" align="left"><ol align="center">肝胆胰腺外科</ol><div class="forb"></div></div><br><br>
+									<div class="fora" align="left"><ol align="center">肝胆胰腺外科</ol><div class="forb"></div></div><br><br><br>
+<!--								</div>-->
+
+<!--							</div>-->
+						</li>
+						<li><h3>医生</h3>
+<!--							<div class="jcnav jcnav2">-->
+<!--								<img src="index0/images/icon3.png">-->
+<!--								<div class="jcnavp">-->
+									<div class="fora"><ol align="center">丁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;兢</ol><div class="forb"></div></div><br><br>
+									<div class="fora"><ol align="center">余&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佳</ol><div class="forb"></div></div><br><br>
+									<div class="fora"><ol align="center">贾&nbsp;&nbsp;俊&nbsp;&nbsp;君</ol><div class="forb"></div></div>
+<!--								</div>-->
+<!--							</div>-->
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+<!--			了解更多-->
+			<div class="box">
+				<div class="tit"><span><a href="buy_yao.html">药物购买</a></span><p></p></div>
+				<div class="boxnav" id="" style="height: 280px;">
+					<ul class="tqdb">
+						<img src="index0/images/buy_gif.gif!qt324new_nowater" style="width: 300px;height: 280px">
+						</p>
+
+					</ul>
+				</div>
+			</div>
+<!--			<div class="box">-->
+<!--				<div class="tit"><span><a href="personInfo.html">购药记录</a></span><p></p></div>-->
+<!--			</div>-->
+
+
+		</li>
+	</ul>
+</div>
+</body>
+</html>

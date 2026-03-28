@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现分页</title>
+    <link rel="stylesheet" type="text/css" href="buy/css/index.css"/>
+    <script src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+<!-- 内容块 -->
+
+<div class="page-block">
+    <div class="page-1">
+
+        <h1>购药中心</h1>
+        <button style="margin-left: 67%;width: 110px;height: 30px" onclick="window.open('traffic.html')">肝脏疾病预测</button>
+        <button onclick="window.open('yufang1.html')"style="width: 110px;height: 30px">心血管疾病预测</button>
+        <button  onclick="window.open('personInfo.html')" style="width: 100px;height: 30px">个人中心</button>
+        <button  onclick="window.open('index0.html')" style="width: 100px;height: 30px;color: #01AAED">退出</button>
+
+
+        <div class="article-hover" style="position:absolute;top:105px;right: 1%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_img/1.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 13px" >药名规格：左氧氟沙星滴眼液 5ml*1瓶/盒 </p>
+                    <p align="left" style="font-size: 13px">价格：18元/盒</p>
+                    <p align="left" style="font-size: 13px">有效期：36个月</p>
+                    <p align="left" style="font-size: 13px">常见用法：滴眼,一次一滴,一日三次</p>
+                    <p align="left" style="font-size: 13px">适用症：角膜炎,细菌性结膜炎,眼睛红肿,眼睑炎等</p>
+                    <p align="left" style="font-size: 13px">特殊人群：孕妇及可能妊娠的妇女慎用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 25px;margin-top:2%;size: A3;background: #e4b9c0;margin-left:70%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 25.5%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_img/2.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 13px;margin-top: 5px">&nbsp;药名规格：碑林和血明目片  0.31g*70片/盒 </p>
+                    <p align="left" style="font-size: 13px">&nbsp;价格：44.9元/盒</p>
+                    <p align="left" style="font-size: 13px">&nbsp;有效期：24个月</p>
+                    <p align="left" style="font-size: 13px">&nbsp;常见用法：口服,一次5片，一日三次</p>
+                    <p align="left" style="font-size: 13px">&nbsp;适用症：眼部出血</p>
+                    <p align="left" style="font-size: 13px">&nbsp;特殊人群：尚不明确</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;margin-top:5%;height: 25px;size: A3;background: #e4b9c0;margin-left:74%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 50%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_img/3.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 13px">&nbsp;药名规格： 妥布霉素滴眼液 5ml*1支/盒 </p>
+                    <p align="left" style="font-size: 13px">&nbsp;价格：18元/盒</p>
+                    <p align="left" style="font-size: 13px">&nbsp;有效期：36个月</p>
+                    <p align="left" style="font-size: 13px">&nbsp;常见用法：滴眼,一次一滴,每次4小时一次</p>
+                    <p align="left" style="font-size: 13px">&nbsp;适用症：敏感细菌所致的外眼及附属器的局部感染</p>
+                    <p align="left" style="font-size: 13px">&nbsp;特殊人群：孕妇不建议使用;哺乳期妇女禁用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 25px;size: A3;background: #e4b9c0;margin-top: 3%;margin-left: 74%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover"style="position:absolute;top:105px;right: 74.5%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_img/4.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 13px;margin-top: 5px" >药名规格:妥布霉素地塞米松眼膏 3.5g*1支/盒 </p>
+                    <p align="left" style="font-size: 13px">价格：35元/盒</p>
+                    <p align="left" style="font-size: 13px">有效期：24个月</p>
+                    <p align="left" style="font-size: 13px">常见用法：涂于眼睑内,一次0.1g,一日3次</p>
+                    <p align="left" style="font-size: 13px">适用症：眼部细菌感染,感染性结膜炎,眼表感染部位</p>
+                    <p align="left" style="font-size: 13px">特殊人群：不推荐孕期及哺乳期使用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 25px;size: A3;background: #e4b9c0;margin-top: 3%;margin-left:  74%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="article-hover" style="position: absolute;top: 495px;right: 1%;width: 330px" >
+            <div class="thumbnail" style="margin-top: 1%;margin-left: 1.5%;width:100%;height: 150px">
+                <img src="buy_img/5.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="lefttoday_bar pulefttoday_bar fl" >
+                    <p align="left" style="font-size: 13px;margin-top: 5px">&nbsp;药名规格：戴氏护眼贴  3袋/盒 </p>
+                    <p align="left" style="font-size: 13px">&nbsp;价格：13.9元/盒</p>
+                    <p align="left" style="font-size: 13px">&nbsp;有效期：24个月</p>
+                    <p align="left" style="font-size: 13px">&nbsp;常见用法：外贴于眼周皮肤,15-20分钟后取下</p>
+                    <p align="left" style="font-size: 13px">&nbsp;适用症：眼睛疲劳、干涩</p>
+                    <p align="left" style="font-size: 13px">&nbsp;特殊人群：蛋白类过敏人群禁用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 25px;size: A3;background: #e4b9c0;margin-top: 1%;margin-left: 74%">加入订单</button>
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 25.5%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%;height: 140px">
+                <img src="buy_img/6.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2" >
+                    <p align="left" style="font-size: 13px;margin-top: 5px">药名规格：热敷蒸汽眼罩 10袋/盒 </p>
+                    <p align="left" style="font-size: 13px">价格：29元/盒</p>
+                    <p align="left" style="font-size: 13px">有效期：36个月</p>
+                    <p align="left" style="font-size: 13px">常见用法：取出一片热敷20-30分钟,温度下降代表使用结束</p>
+                    <p align="left" style="font-size: 13px">适用症：眼部疲劳</p>
+                    <p align="left" style="font-size: 13px">特殊人群：婴幼儿,孕妇禁用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 25px;size: A3;background: #e4b9c0;margin-top: 1%;margin-left: 200px">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 50%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 74.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="page-2" >
+        <h1>购药中心</h1>
+        <button style="margin-left: 67%;width: 110px;height: 30px" onclick="window.open('traffic.html')">肝脏疾病预测</button>
+        <button onclick="window.open('yufang1.html')"style="width: 110px;height: 30px">心血管疾病预测</button>
+        <button  onclick="window.open('personInfo.html')" style="width: 100px;height: 30px">个人中心</button>
+        <button  onclick="window.open('index0.html')" style="width: 100px;height: 30px">退出</button>
+
+        <div class="article-hover" style="position:absolute;top:105px;right: 1%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_middle/1.png" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 15px" >药名规格：左氧氟沙星滴眼液 5ml*1瓶/盒 </p>
+                    <p align="left" style="font-size: 15px">价格：18元/盒  有效期：36个月</p>
+                    <p align="left" style="font-size: 15px"> 有效期：36个月</p>
+                    <p align="left" style="font-size: 15px">常见用法：滴眼,一次一滴,一日三次</p>
+                    <p align="left" style="font-size: 15px">适用症：角膜炎,细菌性结膜炎,眼睛红肿,眼睑炎等</p>
+                    <p align="left" style="font-size: 14px">特殊人群：孕妇及可能妊娠的妇女慎用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 30px;size: A3;background: #e4b9c0;margin-left:50%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 25.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 50%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover"style="position:absolute;top:105px;right: 74.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="article-hover" style="position: absolute;top: 495px;right: 1%;width: 330px" >
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 25.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 50%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 74.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page-3">
+        <h1>购药中心</h1>
+        <button style="margin-left: 67%;width: 110px;height: 30px" onclick="window.open('traffic.html')">肝脏疾病预测</button>
+        <button onclick="window.open('yufang1.html')"style="width: 110px;height: 30px">心血管疾病预测</button>
+        <button  onclick="window.open('personInfo.html')" style="width: 100px;height: 30px">个人中心</button>
+        <button  onclick="window.open('index0.html')" style="width: 100px;height: 30px">退出</button>
+
+        <div class="article-hover" style="position:absolute;top:105px;right: 1%;width: 330px">
+            <div class="thumbnail" style="margin-top: 3%;margin-left: 1.5%;width:100%">
+                <img src="buy_img/1.jpg" alt="">
+            </div>
+            <div class="info-content" onmouseover="light(this)" onmouseout="normal(this)">
+                <div class="pvr fr pulefttoday_bar2"  >
+                    <p align="left" style="font-size: 15px" >药名规格：左氧氟沙星滴眼液 5ml*1瓶/盒 </p>
+                    <p align="left" style="font-size: 15px">价格：18元/盒  有效期：36个月</p>
+
+                    <p align="left" style="font-size: 15px">常见用法：滴眼,一次一滴,一日三次</p>
+                    <p align="left" style="font-size: 15px">适用症：角膜炎,细菌性结膜炎,眼睛红肿,眼睑炎等</p>
+                    <p align="left" style="font-size: 14px">特殊人群：孕妇及可能妊娠的妇女慎用</p>
+                    <button onclick="submitInfos(this)"  class="register-tis" style="width:90px;height: 30px;size: A3;background: #e4b9c0;margin-left:50%">加入订单</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 25.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 50%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover"style="position:absolute;top:105px;right: 74.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="article-hover" style="position: absolute;top: 495px;right: 1%;width: 330px" >
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 25.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 50%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 495px;right: 74.5%;width: 330px">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page-4">
+        <h1>第四页</h1>
+
+        <div class="article-hover" style="position:absolute;top:105px;right: 325px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 40px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 325px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 605px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position:absolute;top:105px;right: 885px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover"style="position:absolute;top:105px;right: 1170px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 375px;right: 40px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 375px;right: 325px;" >
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 375px;right: 605px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 375px;right: 885px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="article-hover" style="position: absolute;top: 375px;right: 1170px;">
+            <div class="thumbnail">
+                <img src="./imgs/thumbnail/2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 分页按钮 -->
+<div class="page-icon" style="margin-top: 53%">
+    <button class="firstPage" onclick="first_click()" ></button>
+    <button class="beforePage" onclick="prev_click()" ><img src="buy/img/left.jpg"/></button>
+    <button>第<input id="currentPage" onchange="choose_page()" type="text" value="1"/>页</button>
+    <button>/&nbsp;&nbsp;&nbsp;共<input id="totalPage" type="button" value="3" readonly="readonly">页</button>
+    <button class="nextPage" onclick="next_click()"><img src="buy/img/right.jpg"/></button>
+    <button class="lastPage" onclick="last_click()"></button>
+</div>
+<script type="text/javascript">
+    function submitInfos(obj){
+        var dom=$(obj).parents("div").children();
+        var namestat=dom.eq(0).text().indexOf("：");
+        var pricestat=dom.eq(1).text().indexOf("：");
+        // alert(pricestat);
+        var methodName=dom.eq(0).text().substring(namestat+1);
+        var methodPrice=dom.eq(1).text().substring(pricestat+1);
+
+        let flag=confirm("是否要加入订单？");
+        if (!flag){
+            return 0;
+        }
+        $.ajax({
+            type:"post",
+            url:"/record/addRecord",
+            data:{
+                methodName:methodName,
+                methodPrice:methodPrice
+            },
+            dataType:"json",
+            success:function(data){
+                if (data){
+                    alert("添加成功！");
+                }else{
+                    alert("添加失败！");
+                }
+            },error:function(){
+                alert("error");
+            }
+        });
+    }
+</script>
+<script src="buy/js/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

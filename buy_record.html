@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单记录</title>
+    <link href="css/style2.css"  rel="stylesheet" type="text/css" media="all" />
+    <link href="search/css/bootstrap.min.css" rel="stylesheet">
+    <link href="search/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="search/css/style.min.css" rel="stylesheet">
+</head>
+<body>
+
+<table style="display: none">
+    <tbody id="trmodel">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    </tbody>
+
+</table>
+<div class="container-fluid" style="width: 60%;">
+    <div class="row" style="margin-top: 20%">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>相关信息</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" >
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>用户名</th>
+                                <th>药物名</th>
+                                <th>药物价格</th>
+                            </thead>
+                            <tbody id="bodyContent">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="search/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e){
+            //alert("ok");
+            var content=$("#bodyContent");
+            var trmodel=$("#trmodel");
+
+            $.ajax({
+                type:"get",
+                url:"/record/listRecordByUserName",
+                dataType:"json",
+                success:function (data){
+                    //alert(data.length);
+                    for (var i=0;i<data.length;i++){
+                        trmodel.find("td").eq(0).text(i+1);
+                        trmodel.find("td").eq(1).text(data[i].userName);
+                        trmodel.find("td").eq(2).text(data[i].methodName);
+                        trmodel.find("td").eq(3).text(data[i].methodPrice);
+                        content.append(trmodel.html());
+                    }
+                }
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('puleftbox2bott_cont'));
+        option = {
+            color:['#7ecef4'],
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left:40,
+                right:20,
+                top:30,
+                bottom:0,
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'value',
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,0)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,0)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,0)"
+                },
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.5)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,.5)"
+                },
+                data: ['精神因素','遗传原因','三高患病史','饮食因素']
+            },
+            series: [
+                {
+                    name: '2021年',
+                    type: 'bar',
+                    barWidth :20,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                1, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(230,253,139,.7)'},
+                                    {offset: 1, color: 'rgba(41,220,205,.7)'}
+                                ]
+                            )
+                        }
+                    },
+                    data: [58203, 63489, 69034, 104970]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('puleftboxtmidd1'));
+        var data = [
+            [5000, 10000, 6785.71],
+            [4000, 10000, 6825],
+            [3000, 6500, 4463.33],
+            [2500, 5600, 3793.83],
+            [2000, 4000, 3060],
+            [2000, 4000, 3222.33],
+            [2500, 4000, 3133.33],
+            [1800, 4000, 3100],
+            [1500, 1800, 1650]
+        ];
+        var cities = ['甘孜县', '泸定县', '炉霍县', '色达县', '白玉县', '得荣县', '雅江县', '九龙县', '康定市' ];
+        var barHeight = 50;
+        option = {
+            color:['#7ecef4'],
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left:60,
+                right:60,
+                top:60,
+                bottom:40
+            },
+            legend: {
+                show: true,
+                data: ['价格范围', '均值']
+            },
+            angleAxis: {
+                type: 'category',
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.2)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,.7)"
+                },
+                data: cities
+            },
+            radiusAxis: {
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.2)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,.5)"
+                }
+            },
+            polar: {
+            },
+            series: [{
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                },
+                data: data.map(function (d) {
+                    return d[0];
+                }),
+                coordinateSystem: 'polar',
+                stack: '最大最小值',
+                silent: true
+            }, {
+                type: 'bar',
+                data: data.map(function (d) {
+                    return d[1] - d[0];
+                }),
+                coordinateSystem: 'polar',
+                name: '价格范围',
+                stack: '最大最小值'
+            }, {
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                },
+                data: data.map(function (d) {
+                    return d[2] - barHeight;
+                }),
+                coordinateSystem: 'polar',
+                stack: '均值',
+                silent: true,
+                z: 10
+            }, {
+                type: 'bar',
+                data: data.map(function (d) {
+                    return barHeight * 2
+                }),
+                coordinateSystem: 'polar',
+                name: '均值',
+                stack: '均值',
+                barGap: '-100%',
+
+                z: 10
+            }],
+            legend: {
+                show: true,
+                data: ['A', 'B', 'C']
+            }
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('puleftboxtmidd2'));
+        option = {
+            color:['#7ecef4'],
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left:40,
+                right:20,
+                top:30,
+                bottom:0,
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'value',
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,0)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,0)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,0)"
+                },
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                axisLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.5)'
+                    }
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel:{
+                    color:"rgba(255,255,255,.5)"
+                },
+                data: ['微博','网站','新闻','贴吧','论坛']
+            },
+            series: [
+                {
+                    name: '2021年',
+                    type: 'bar',
+                    barWidth :20,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                1, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(230,253,139,.7)'},
+                                    {offset: 1, color: 'rgba(41,220,205,.7)'}
+                                ]
+                            )
+                        }
+                    },
+                    data: [18203, 23489, 29034, 104970, 131744]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

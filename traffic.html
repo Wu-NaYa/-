@@ -1,0 +1,240 @@
+﻿<!doctype html>
+<meta charset="utf-8" xmlns="">
+<title>疾病疾病预防</title>
+<link href="css/style3.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/echarts.min.js" charset="utf-8"></script>
+<script src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+<script src="beijing.js"></script>
+<script src="js/echarts-all.js"></script>
+<script src="js/echarts-wordcloud.js"></script>
+
+<body>
+<div class="wpbox">
+<div class="bnt">
+  <div class="topbnt_left fl">
+   <ul><li ><a href="analysis.html">疾病科普</a></li>
+      <li><a href="people.html">疾病分析</a></li>
+      
+ 
+   </ul>
+  </div>
+  <h1 class="tith1 fl">肝脏疾病预测</h1>
+  <div class=" fr topbnt_right">
+    <ul>
+        <li><a href="index0.html">返回首页</a></li>
+<!--       <li><a href="activity.html">养生</a></li>-->
+       <li><a href="traffic.html">疾病预测</a></li>
+    </ul>
+   
+  </div>
+</div>
+<!-- bnt end -->
+<!--<div class="left1">-->
+<!--    <div class="aleftboxttop pt1"><h2 class="tith2">乳腺癌常见现状</h2>-->
+<!--    -->
+<!--      <div id="xian" class="tlbox">-->
+<!--       -->
+<!--      </div>-->
+
+<!--    &lt;!&ndash; lefttoday_number end &ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="aleftboxtmidd">-->
+<!--      <h2 class="tith2 pt2">类风湿关节炎治疗手段</h2>-->
+<!--      -->
+<!--        <div  id="duan" class="tlbox">-->
+<!--          -->
+<!--        </div>-->
+<!--  </div>-->
+<!--  <div class="aleftboxtbott">-->
+<!--    <h2 class="tith2">类风湿关节炎治疗药物</h2>-->
+<!--        &lt;!&ndash; <div class="lefttoday_tit height"><p class="fl">状态：已调节.æl,kmo</p><p class="fr">时间段：2018-06-10 至 2018-06-14</p></div> &ndash;&gt;-->
+<!--    <div id="aleftboxtmidd" class="aleftboxtbott_cont2" ></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--  left1 end -->
+<div class="mrbox">
+      <div class="mrbox_topmidd" style="width: 69%;">
+          <div class="amiddboxttop" style="width: 620px;height: 630px;margin-left: 60px">
+              <h2 class="tith2 pt1" style="font-size: 18px">肝脏疾病预测</h2>
+                <div class="hot_map" id="topmap" >
+                    <center>
+                        <form action="#" method="post" id="form1">
+                            <table border="0" style=" width:500px;height: 500px">
+                                <tr>
+                                    <td style="font-weight: bolder;font-size:18px">性别</td>
+                                    <td>
+                                        <select type="text" id="loan_1" name="gender" style="text-align:center;text-align-last:center;padding-left:20px; margin:-0.6rem 0;" />
+                                        <option></option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>/>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bolder;font-size: 18px">是否长期疲劳</td>
+                                    <td>
+                                        <select type="text" id="loan_3" name="tired" style="text-align:center;text-align-last:center;padding-left:20px; margin:-0.6rem 0;" />
+                                        <option></option>
+                                        <option value="1">是</option>
+                                        <option value="2">否</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bolder;font-size: 18px">是否服用抗病毒药物</td>
+                                    <td>
+                                        <select type="text" id="loan_2" name="medicine" style="text-align:center;text-align-last:center;padding-left:20px; margin:-0.6rem 0;" />
+                                        <option></option>
+                                        <option value="1">是</option>
+                                        <option value="2">否</option>/>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 20px;pxfont-weight: bolder">是否长期有厌食表现</td>
+                                    <td>
+                                        <select type="text" id="loan_4" name="anorexia"
+                                                style="text-align:center;text-align-last:center;padding-left:20px; margin:-0.6rem 0;"/>
+                                        <option></option>
+                                        <option value="1">是</option>
+                                        <option value="2">否</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bolder;font-size: 18px">肝脏大小</td>
+                                    <td>
+                                        <select type="text" id="loan_5" name="size"
+                                                style="text-align:center;text-align-last:center;padding-left:20px; margin:-0.6rem 0;"/>
+                                        <option></option>
+                                        <option value="1">大</option>
+                                        <option value="2">小</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-weight: bolder;font-size: 12px"><h2>预测结果(1:患病概率高,2:患病概率低):</h2></td>
+                                    <td><output type="text" id="predict" name="predict" style="font-size: 40px;color: #d2322d" /></td>
+                                </tr>
+
+                            </table>
+                        </form>
+
+                        <br />
+                        <div id="yc">
+                            <button onclick="predict()" style="color: #e4b9c0;font-size: 25px;top: 100px">
+                                点击预测
+                            </button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+          </div>
+        <!-- mrbox_top end -->
+        <div class="mrbox_top_right" >
+          <div class="arightboxtop" style="height: 300px;width: 650px;display: none"><h2 class="tith2" style="font-size: 15px;color: #99b0f7">小贴士：如有需要为您推荐以下方案</h2>
+              <p style="margin-left: 20px;font-size: 15px"> 方案一：</p>
+              <p style="margin-left: 20px;font-size: 12px"> 医院:北京佑安医院 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科室:肝胆外科</p>
+<!--              <p style="margin-left: 20px;font-size: 12px"> 科室:肝胆外科</p>-->
+              <p style="margin-left: 20px;font-size: 12px"> 医生：丁兢（外科学博士，长期从事肝胆外科临床工作，擅长肝脏肿瘤，胆道疾病及终末期肝病的移植手术治疗） </p>
+              <p style="margin-left: 20px;font-size: 12px"> 联系电话：010-83997599</p><br>
+
+              <p style="margin-left: 20px;font-size: 15px"> 方案二：</p>
+              <p style="margin-left: 20px;font-size: 12px"> 医院:武汉大学人民医院 &nbsp;&nbsp;&nbsp;&nbsp;科室:肝胆胰腺外科</p>
+<!--              <p style="margin-left: 20px;font-size: 12px"> 科室:肝胆胰腺外科</p>-->
+              <p style="margin-left: 20px;font-size: 12px"> 医生：余佳（武汉大学外科学博士，完成各类腹腔镜肝胆胰脾手术近千台） </p>
+              <p style="margin-left: 20px;font-size: 12px"> 联系电话：027-88041911</p><br>
+              <p style="margin-left: 20px;font-size: 15px"> 方案三：</p>
+              <p style="margin-left: 20px;font-size: 12px"> 医院:浙江大学医学院附属第一医院 &nbsp;&nbsp;&nbsp;&nbsp; 科室:肝胆胰腺外科</p>
+<!--              <p style="margin-left: 20px;font-size: 12px"> 科室:肝胆胰腺外科</p>-->
+              <p style="margin-left: 20px;font-size: 12px"> 医生：贾俊君（浙江大学博士，临床博士后，主攻方向肝胆胰疾病和肝移植。） </p>
+              <p style="margin-left: 20px;font-size: 12px"> 联系电话：0571-87236114</p><br>
+        </div>
+        <!-- mrbox_top_right end -->
+            <div class="mrbox_top_end" >
+                <div class="arightboxtop" style="height: 300px;width: 650px;margin-top: 30px"><h2 class="tith2" style="font-size: 15px;color: #e4b9c0">小贴士：快来看看如何保护肝脏吧！</h2>
+                    <p style="margin-left: 20px;font-size: 15px">1、注意饮食卫生:不喝生水，也不要生食海鲜，因为蛤、蚝以及贝类等容易受到A型肝炎病毒感染。</p><br>
+                    <p style="margin-left: 20px;font-size: 15px"> 2、保持正常的体重：超重可能增加患肝病的几率，会让肝脏工作更辛苦, 患脂肪肝的机率也会升高。如果全身脂肪减少，肝脏的脂肪也会减少，甚至明显下降肝病病人升
+                        高的肝功能指数。
+                    </p><br>
+                    <p style="margin-left: 20px;font-size: 15px">3、不抽烟不喝酒：饮酒会提高发生脂肪肝、酒精性肝病的机会,有肝病的人应该完全戒洒，同时抽烟和患肝
+                        癌有关。</p><br>
+                    <p style="margin-left: 20px;font-size: 15px">4、注意睡眠时间：成年人正常的睡眠时间应该为8小时，应该是从23点左右开始上床睡觉了，到了凌晨1侄
+                        3点钟是进入深睡眠状态，这个时辰是养肝血的最佳时间，反之，就会养不足血。</p>
+                    <a href="http://localhost:8080/searchInfo.html">
+                        <button   type="button" style="color: #1c1e2f;background: #e4b9c0;margin-left: 500px;height: 30px;width: 120px;margin-top: 10px">点我了解更多吧</button>
+                    </a>
+                </div>
+      </div>
+
+    </div>
+</div>
+</div>
+
+
+
+
+</script>
+    <!--这行代码可以删除-->
+    <a style="display:none" href="http://www.bootstrapmb.com">bootstrap模板库</a>
+
+</body>
+<script>
+    $("#back").click(function () {
+        $('#w').hide();
+        $('#jg').hide();
+        $('#ftttff').hide();
+        $('#back').hide();
+        $('#dd').hide();
+        $("#x").show();
+        $('#xt').show();
+        $('#bhc').hide()
+
+
+    });
+    $('#yc').click(function () {
+        $('#w').show();
+        $('#jg').show();
+        $('#ftttff').show();
+        $('#back').show();
+        $('#dd').show();
+        $("#x").hide();
+        $('#xt').hide();
+        $('#bhc').show();
+        $('#wwff').hide();
+        $('#wn').show()
+    });
+    $('#back').hide();
+    $('#dd').hide();
+    $('#w').hide();
+    $('#bhc').hide();
+    $('#wwff').show();
+    $('#wn').hide();
+
+    function predict() {
+        $('.arightboxtop').css("display","");
+        $.ajax({
+            method: "post",
+            url: '/ganpredict/gangetpredict',
+            data: {
+                "gender": $('#loan_1').val(),
+                "medicine": $('#loan_2').val(),
+                "tired": $('#loan_3').val(),
+                "anorexia": $('#loan_4').val(),
+                "size": $('#loan_5').val(),
+
+            },
+
+            success: function (a) {
+
+                $('#predict').html(a);
+
+            }
+        });
+
+    }
+</script>
+</html>
